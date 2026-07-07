@@ -108,15 +108,6 @@ textarea:focus-visible {
 
 /* ---- Type scale ------------------------------------------------------- */
 
-.eyebrow {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--dark-tint-70);
-}
-
 .h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -474,10 +465,6 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-}
-
-.hero__eyebrow {
-  color: color-mix(in srgb, var(--cream) 80%, var(--grey-orange));
 }
 
 .hero .h1 {

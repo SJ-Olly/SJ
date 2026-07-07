@@ -2,6 +2,17 @@
   var header = document.getElementById('siteHeader');
   var toggle = document.getElementById('navToggle');
 
+  // If a stock image fails to load, hide it so the tinted frame shows
+  // instead of a broken image icon.
+  document.querySelectorAll('img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      img.style.visibility = 'hidden';
+    });
+    if (img.complete && img.naturalWidth === 0 && img.src) {
+      img.style.visibility = 'hidden';
+    }
+  });
+
   if (toggle && header) {
     toggle.addEventListener('click', function () {
       var open = header.classList.toggle('is-open');
