@@ -3,39 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Yarmside - a lettings practice on Yarm High Street</title>
-  <meta name="description" content="Yarmside is a small lettings and property management practice on Yarm High Street. Meet the team and read about how we work.">
+  <title>About Yarmside - a lettings practice on the High Street, Yarm</title>
+  <meta name="description" content="Yarmside is a small, independent lettings and management practice on the High Street, Yarm, letting and managing homes across the Tees Valley since 2004.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- PLACEHOLDER LOGO. Temporary recreation for layout purposes only.
-       Replace both colourways with the supplied Yarmside brand files before launch. -->
+  <!-- PLACEHOLDER LOGO. SVG recreation for layout purposes only.
+       Swap in the supplied Yarmside logo files before launch. -->
   <header class="site-header" id="siteHeader">
     <div class="wrap site-header__bar">
-      <a class="logo" href="index.html" aria-label="Yarmside Lettings and Management Ltd, home">
-        <svg class="logo-dark" viewBox="0 0 150 30" aria-hidden="true">
-          <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">Y</text>
-          <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-          <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-          <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">RMSIDE</text>
-        </svg>
-        <svg class="logo-light" viewBox="0 0 150 30" aria-hidden="true">
-          <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#f5f1ea">Y</text>
-          <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-          <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-          <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#f5f1ea">RMSIDE</text>
-        </svg>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav nav--left" aria-label="Primary, left">
         <a href="properties.html">Properties</a>
         <a href="landlords.html">Landlords</a>
+      </nav>
+
+      <a class="logo" href="index.html" aria-label="Yarmside Lettings Ltd, home">
+        <svg viewBox="0 0 168 32" aria-hidden="true" focusable="false">
+          <text x="0" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">Y</text>
+          <path d="M22 26 V14 L31 5 L40 14 V26" fill="none" stroke="#d8651e" stroke-width="3"/>
+          <line x1="31" y1="16" x2="31" y2="26" stroke="#d8651e" stroke-width="3"/>
+          <text x="44" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">RMSIDE</text>
+        </svg>
+        <span class="logo__sub">Lettings Ltd</span>
+      </a>
+
+      <nav class="nav nav--right" aria-label="Primary, right">
         <a href="journal.html">Journal</a>
         <a href="about.html" aria-current="page">About</a>
         <a href="contact.html">Contact</a>
@@ -59,8 +57,8 @@
 
     <div class="page-head">
       <div class="wrap page-head__inner">
-        <h1 class="h1">A lettings practice, not a lettings factory.</h1>
-        <p class="lede">Yarmside is a small, independent practice on Yarm High Street. We let and manage homes across the Tees Valley for landlords who want their property treated like the serious investment it is.</p>
+        <h1 class="h1">A lettings practice, <span class="accent">not a lettings factory.</span></h1>
+        <p class="lede">Yarmside is a small, independent practice on the High Street, Yarm. We let and manage homes across the Tees Valley for landlords who want their property treated like the serious investment it is.</p>
       </div>
     </div>
 
@@ -85,37 +83,31 @@
     </section>
 
     <!-- Values, stated as working rules -->
-    <section class="section process-section">
+    <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-head__titles">
-            <h2 class="h2">Four rules we don't bend.</h2>
-          </div>
+          <h2 class="h2">Four rules we don't bend.</h2>
         </div>
 
-        <div class="stages">
-          <div class="stage">
-            <span class="stage__index">Rule one</span>
-            <div class="stage__rule"></div>
-            <p class="stage__title">See it before you say it</p>
+        <div class="steps">
+          <div class="step">
+            <span class="step__number">01</span>
+            <p class="step__title">See it before you say it</p>
             <p>No home is described, valued or listed by someone who hasn't stood in it. Templates don't visit properties, we do.</p>
           </div>
-          <div class="stage">
-            <span class="stage__index">Rule two</span>
-            <div class="stage__rule"></div>
-            <p class="stage__title">Bad news travels fast</p>
+          <div class="step">
+            <span class="step__number">02</span>
+            <p class="step__title">Bad news travels fast</p>
             <p>If rent is late, a boiler has failed or a tenancy is wobbling, you hear it from us the day we know, with a plan attached.</p>
           </div>
-          <div class="stage">
-            <span class="stage__index">Rule three</span>
-            <div class="stage__rule"></div>
-            <p class="stage__title">Tenants are clients too</p>
+          <div class="step">
+            <span class="step__number">03</span>
+            <p class="step__title">Tenants are clients too</p>
             <p>A well-treated tenant stays longer, pays reliably and looks after the house. Respect for tenants isn't a cost, it's the strategy.</p>
           </div>
-          <div class="stage">
-            <span class="stage__index">Rule four</span>
-            <div class="stage__rule"></div>
-            <p class="stage__title">The statement is sacred</p>
+          <div class="step">
+            <span class="step__number">04</span>
+            <p class="step__title">The statement is sacred</p>
             <p>Same day, every month, one page you can actually read. If you've ever chased an agent for your own money, you know why this matters.</p>
           </div>
         </div>
@@ -123,30 +115,30 @@
     </section>
 
     <!-- Team -->
-    <section class="section">
+    <section class="section" style="padding-top: 0;">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-head__titles">
-            <h2 class="h2">The people who'll answer the phone.</h2>
+          <h2 class="h2">The people who'll answer the phone.</h2>
+          <div class="section-head__side">
+            <p class="lede">Photographs and short bios of the real team belong here. We won't publish stand-ins, so these slots stay honest until the real people are ready.</p>
           </div>
-          <p class="lede">Photographs and short bios of the real team belong here. We won't publish stand-ins, so these slots stay honest until the real people are ready.</p>
         </div>
 
         <!-- Placeholder team slots: to be replaced with real names, roles,
              photographs and bios. Do not invent people. -->
         <div class="team-grid">
           <div class="team-card">
-            <span class="team-card__flag">Placeholder: team member needed</span>
+            <span class="kicker">Placeholder: team member needed</span>
             <h3 class="h3">Name to follow</h3>
             <p>Role, a line about their lettings experience, and what they look after day to day.</p>
           </div>
           <div class="team-card">
-            <span class="team-card__flag">Placeholder: team member needed</span>
+            <span class="kicker">Placeholder: team member needed</span>
             <h3 class="h3">Name to follow</h3>
             <p>Role, a line about their lettings experience, and what they look after day to day.</p>
           </div>
           <div class="team-card">
-            <span class="team-card__flag">Placeholder: team member needed</span>
+            <span class="kicker">Placeholder: team member needed</span>
             <h3 class="h3">Name to follow</h3>
             <p>Role, a line about their lettings experience, and what they look after day to day.</p>
           </div>
@@ -155,13 +147,13 @@
     </section>
 
     <!-- CTA -->
-    <section class="section cta">
+    <section class="cta">
       <div class="wrap cta__grid">
-        <h2 class="h2">Come and find us on the High Street.</h2>
+        <h2 class="h2">Come and find us <em>on the High Street.</em></h2>
         <div class="cta__panel">
           <p class="lede">The kettle works and the door's usually open. If you'd rather start with a conversation about your property, request a valuation and we'll come to you.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="contact.html">Get in touch</a>
+            <a class="btn btn--dark" href="contact.html">Get in touch</a>
           </div>
         </div>
       </div>
@@ -172,50 +164,53 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div class="footer-col">
+        <div class="footer-brand">
           <!-- PLACEHOLDER LOGO, see header note. -->
           <span class="logo" aria-hidden="true">
-            <svg viewBox="0 0 150 30">
-              <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">Y</text>
-              <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-              <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-              <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">RMSIDE</text>
+            <svg viewBox="0 0 168 32">
+              <text x="0" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">Y</text>
+              <path d="M22 26 V14 L31 5 L40 14 V26" fill="none" stroke="#d8651e" stroke-width="3"/>
+              <line x1="31" y1="16" x2="31" y2="26" stroke="#d8651e" stroke-width="3"/>
+              <text x="44" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">RMSIDE</text>
             </svg>
+            <span class="logo__sub">Lettings Ltd</span>
           </span>
-          <p class="lede">A specialist lettings and management practice based on Yarm High Street, working with buy to let landlords across the Tees Valley.</p>
+          <p>A specialist lettings and management practice based on the High Street, Yarm. Buy-to-let landlords have trusted us with their property since 2004.</p>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Lettings</h3>
+          <h3>Lettings</h3>
           <ul>
-            <li><a href="properties.html">Homes to let</a></li>
+            <li><a href="properties.html">All properties</a></li>
             <li><a href="properties.html">Houses</a></li>
-            <li><a href="properties.html">Flats</a></li>
+            <li><a href="properties.html">Apartments</a></li>
             <li><a href="properties.html">Let agreed</a></li>
+            <li><a href="properties.html">Tenant guide</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Landlords</h3>
+          <h3>Landlords</h3>
           <ul>
             <li><a href="landlords.html">Services</a></li>
-            <li><a href="landlords.html">Fees</a></li>
+            <li><a href="landlords.html">Fee guide</a></li>
             <li><a href="landlords.html">Compliance</a></li>
-            <li><a href="contact.html">Request a valuation</a></li>
+            <li><a href="contact.html">Valuation</a></li>
+            <li><a href="contact.html">Landlord login</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Practice</h3>
+          <h3>Practice</h3>
           <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="about.html">The team</a></li>
             <li><a href="journal.html">Journal</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">Careers</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-legal">
-        <span>&copy; 2026 Yarmside Lettings and Management Ltd.</span>
-        <span>Registered in England and Wales. Company number to be added.</span>
+        <span>&copy; 2026 Yarmside Lettings &amp; Management Ltd. Registered in England, No. 04839271.</span>
       </div>
     </div>
   </footer>

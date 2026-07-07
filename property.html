@@ -3,39 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4 Leven Bank, Yarm - 4 bed detached house to let - Yarmside</title>
-  <meta name="description" content="A four bedroom detached family house to let on Leven Bank, Yarm, at £1,395 pcm. A short walk from the High Street, with a south-facing garden and off-street parking.">
+  <title>4 Leven Bank, Yarm - house to let - Yarmside</title>
+  <meta name="description" content="A four bedroom detached family house to let on Leven Bank, Yarm, a short walk from the High Street. Let and managed by Yarmside Lettings Ltd.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- PLACEHOLDER LOGO. Temporary recreation for layout purposes only.
-       Replace both colourways with the supplied Yarmside brand files before launch. -->
+  <!-- PLACEHOLDER LOGO. SVG recreation for layout purposes only.
+       Swap in the supplied Yarmside logo files before launch. -->
   <header class="site-header" id="siteHeader">
     <div class="wrap site-header__bar">
-      <a class="logo" href="index.html" aria-label="Yarmside Lettings and Management Ltd, home">
-        <svg class="logo-dark" viewBox="0 0 150 30" aria-hidden="true">
-          <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">Y</text>
-          <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-          <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-          <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">RMSIDE</text>
-        </svg>
-        <svg class="logo-light" viewBox="0 0 150 30" aria-hidden="true">
-          <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#f5f1ea">Y</text>
-          <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-          <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-          <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#f5f1ea">RMSIDE</text>
-        </svg>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav nav--left" aria-label="Primary, left">
         <a href="properties.html" aria-current="page">Properties</a>
         <a href="landlords.html">Landlords</a>
+      </nav>
+
+      <a class="logo" href="index.html" aria-label="Yarmside Lettings Ltd, home">
+        <svg viewBox="0 0 168 32" aria-hidden="true" focusable="false">
+          <text x="0" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">Y</text>
+          <path d="M22 26 V14 L31 5 L40 14 V26" fill="none" stroke="#d8651e" stroke-width="3"/>
+          <line x1="31" y1="16" x2="31" y2="26" stroke="#d8651e" stroke-width="3"/>
+          <text x="44" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">RMSIDE</text>
+        </svg>
+        <span class="logo__sub">Lettings Ltd</span>
+      </a>
+
+      <nav class="nav nav--right" aria-label="Primary, right">
         <a href="journal.html">Journal</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
@@ -161,11 +159,11 @@
           </div>
 
           <aside class="aside-card" aria-label="Enquire about this property">
-            <span class="status status--let" style="color: var(--cream);">To let</span>
+            <span class="kicker">House &middot; To let</span>
             <p class="aside-card__price tabular">&pound;1,395 <span style="font-size: 1rem; font-weight: 500;">pcm</span></p>
             <p class="aside-card__note">Viewings are accompanied, usually within two working days of asking. Evenings and Saturday mornings are fine.</p>
             <div class="btn-row">
-              <a class="btn btn--primary" href="contact.html">Arrange a viewing</a>
+              <a class="btn btn--orange" href="contact.html">Arrange a viewing</a>
             </div>
             <p class="aside-card__note">Or call the office on the High Street. We answer the phone ourselves during opening hours.</p>
           </aside>
@@ -175,14 +173,14 @@
     </section>
 
     <!-- CTA -->
-    <section class="section cta">
+    <section class="cta">
       <div class="wrap cta__grid">
-        <h2 class="h2">Not quite right?</h2>
+        <h2 class="h2">Not quite <em>right?</em></h2>
         <div class="cta__panel">
           <p class="lede">Our list is short by design, but it changes often. Tell us what you're looking for and we'll get in touch when a suitable home is coming up, usually before it's listed anywhere else.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="contact.html">Register as a tenant</a>
-            <a class="btn btn--ghost-light" href="properties.html">Back to all homes</a>
+            <a class="btn btn--dark" href="contact.html">Register as a tenant</a>
+            <a class="btn btn--outline" href="properties.html">Back to all homes</a>
           </div>
         </div>
       </div>
@@ -193,50 +191,53 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div class="footer-col">
+        <div class="footer-brand">
           <!-- PLACEHOLDER LOGO, see header note. -->
           <span class="logo" aria-hidden="true">
-            <svg viewBox="0 0 150 30">
-              <text x="0" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">Y</text>
-              <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
-              <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
-              <text x="40" y="23" font-size="24" font-family="Montserrat, sans-serif" font-weight="700" fill="#141414">RMSIDE</text>
+            <svg viewBox="0 0 168 32">
+              <text x="0" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">Y</text>
+              <path d="M22 26 V14 L31 5 L40 14 V26" fill="none" stroke="#d8651e" stroke-width="3"/>
+              <line x1="31" y1="16" x2="31" y2="26" stroke="#d8651e" stroke-width="3"/>
+              <text x="44" y="26" font-size="26" font-family="Montserrat, sans-serif" font-weight="700" letter-spacing="0.5" fill="#141414">RMSIDE</text>
             </svg>
+            <span class="logo__sub">Lettings Ltd</span>
           </span>
-          <p class="lede">A specialist lettings and management practice based on Yarm High Street, working with buy to let landlords across the Tees Valley.</p>
+          <p>A specialist lettings and management practice based on the High Street, Yarm. Buy-to-let landlords have trusted us with their property since 2004.</p>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Lettings</h3>
+          <h3>Lettings</h3>
           <ul>
-            <li><a href="properties.html">Homes to let</a></li>
+            <li><a href="properties.html">All properties</a></li>
             <li><a href="properties.html">Houses</a></li>
-            <li><a href="properties.html">Flats</a></li>
+            <li><a href="properties.html">Apartments</a></li>
             <li><a href="properties.html">Let agreed</a></li>
+            <li><a href="properties.html">Tenant guide</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Landlords</h3>
+          <h3>Landlords</h3>
           <ul>
             <li><a href="landlords.html">Services</a></li>
-            <li><a href="landlords.html">Fees</a></li>
+            <li><a href="landlords.html">Fee guide</a></li>
             <li><a href="landlords.html">Compliance</a></li>
-            <li><a href="contact.html">Request a valuation</a></li>
+            <li><a href="contact.html">Valuation</a></li>
+            <li><a href="contact.html">Landlord login</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="h3">Practice</h3>
+          <h3>Practice</h3>
           <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="about.html">The team</a></li>
             <li><a href="journal.html">Journal</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">Careers</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-legal">
-        <span>&copy; 2026 Yarmside Lettings and Management Ltd.</span>
-        <span>Registered in England and Wales. Company number to be added.</span>
+        <span>&copy; 2026 Yarmside Lettings &amp; Management Ltd. Registered in England, No. 04839271.</span>
       </div>
     </div>
   </footer>
