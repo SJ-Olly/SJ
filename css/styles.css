@@ -1318,6 +1318,10 @@ a:focus-visible .frame img {
   display: block;
 }
 
+.form-success--error {
+  border-color: var(--grey-orange);
+}
+
 /* ---- Contact ---------------------------------------------------------------------- */
 
 .contact-grid {

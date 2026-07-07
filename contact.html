@@ -127,10 +127,15 @@
         <div>
           <h2 class="h2" style="margin-bottom: var(--space-3);">Request a valuation</h2>
 
-          <!-- Static site: this form needs wiring to a form endpoint or
-               back office inbox before launch. Submission is currently
-               handled client-side with a confirmation message only. -->
-          <form class="form" id="valuationForm" novalidate>
+          <!-- Wired to Netlify Forms: submissions appear under Forms in the
+               Netlify dashboard. Set up an email notification there so
+               enquiries reach the office inbox. -->
+          <form class="form" id="valuationForm" name="valuation" method="POST" action="/"
+                data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="valuation">
+            <p style="display:none" aria-hidden="true">
+              <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
             <div class="field">
               <label for="name">Your name</label>
               <input type="text" id="name" name="name" autocomplete="name" required>
@@ -170,6 +175,7 @@
               </div>
               <p class="form__note">We'll reply within one working day. Valuations are free and come with no obligation to instruct us.</p>
               <p class="form-success" id="formSuccess" role="status">Thanks, your request has been received. We'll reply within one working day. If it's urgent, email enquiries@yarmside.co.uk directly.</p>
+              <p class="form-success form-success--error" id="formError" role="status">Sorry, your request didn't send. Please try again in a moment, or email enquiries@yarmside.co.uk directly.</p>
             </div>
           </form>
         </div>

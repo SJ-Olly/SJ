@@ -53,12 +53,13 @@
     });
   }
 
-  // Valuation form (contact page). Client-side confirmation only:
-  // wire to a real endpoint before launch.
+  // Valuation form (contact page). Submits to Netlify Forms without a
+  // page reload; falls back to an error message if the request fails.
   var form = document.getElementById('valuationForm');
   var success = document.getElementById('formSuccess');
+  var failure = document.getElementById('formError');
 
-  if (form && success) {
+  if (form && success && failure) {
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -66,9 +67,27 @@
         return;
       }
 
-      success.classList.add('is-visible');
-      form.querySelector('[type="submit"]').disabled = true;
-      success.scrollIntoView({ block: 'nearest' });
+      var submit = form.querySelector('[type="submit"]');
+      submit.disabled = true;
+      failure.classList.remove('is-visible');
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Form submission failed: ' + response.status);
+          }
+          success.classList.add('is-visible');
+          success.scrollIntoView({ block: 'nearest' });
+        })
+        .catch(function () {
+          submit.disabled = false;
+          failure.classList.add('is-visible');
+          failure.scrollIntoView({ block: 'nearest' });
+        });
     });
   }
 })();
