@@ -733,19 +733,9 @@ a:focus-visible .frame img {
 /* ---- Testimonial (placeholder) --------------------------------------------- */
 
 .testimonial {
-  border: 1px dashed var(--rule-strong);
+  border-left: 3px solid var(--orange);
+  background: var(--grey-orange-tint-20);
   padding: clamp(1.75rem, 4vw, 3rem);
-}
-
-.testimonial__flag {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: var(--space-2);
 }
 
 .testimonial__quote {
