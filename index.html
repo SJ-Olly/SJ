@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yarmside — lettings and property management in Yarm and the Tees Valley</title>
+  <meta name="description" content="Yarmside is a lettings and property management practice on Yarm High Street, working with landlords and renters across the Tees Valley and the North East.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header__bar">
+      <!-- PLACEHOLDER LOGO. This is a temporary recreation for layout purposes only.
+           Replace with the supplied Yarmside brand files before this ships;
+           the wordmark must never be rebuilt or retyped in production. -->
+      <a class="logo" href="index.html" aria-label="Yarmside Lettings and Management Ltd, home">
+        <svg viewBox="0 0 150 30" aria-hidden="true">
+          <text x="0" y="23" font-size="24" fill="#141414">Y</text>
+          <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
+          <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
+          <text x="40" y="23" font-size="24" fill="#141414">RMSIDE</text>
+        </svg>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="properties.html">Properties</a>
+        <a href="landlords.html">Landlords</a>
+        <a href="journal.html">Journal</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile">
+        Menu
+      </button>
+    </div>
+
+    <nav class="nav-mobile wrap" id="navMobile" aria-label="Primary, mobile">
+      <a href="properties.html">Properties</a>
+      <a href="landlords.html">Landlords</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap bays bays--split">
+        <div class="hero-copy">
+          <p class="eyebrow">Yarm High Street &middot; Lettings and management</p>
+          <h1 class="h1">We manage homes the way we'd want our own managed.</h1>
+          <p class="lede">A small, unhurried lettings practice based on Yarm High Street, working with landlords and renters across the Tees Valley and the North East.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="contact.html">Request a valuation</a>
+            <a class="btn btn--ghost" href="properties.html">Browse homes to let</a>
+          </div>
+        </div>
+
+        <figure class="hero-art" data-parallax>
+          <img src="images/hero-elevation.svg" alt="Line drawing of a row of frontages along a high street, one bay picked out in orange">
+          <figcaption class="dim-line">
+            <span class="dim-line__label">Where we work</span>
+            <span class="dim-line__rule"></span>
+            <span class="dim-line__value">Yarm &middot; Tees Valley &middot; North East</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Selected homes -->
+    <section class="listings">
+      <div class="wrap">
+        <div class="bays bays--wide-first" style="margin-bottom: var(--space-4);">
+          <div>
+            <p class="eyebrow">Selected homes to let</p>
+            <h2 class="h2">A small number of homes, each one properly described.</h2>
+          </div>
+          <p class="lede">We visit, photograph and describe every home ourselves. We'd rather manage a modest portfolio well than a large one carelessly, so this list is short by design.</p>
+        </div>
+
+        <!-- Placeholder listings: replace addresses, specs and photography with real instructions once agreed. -->
+        <div class="bays bays--triple">
+
+          <article class="property">
+            <div class="property__art">
+              <img src="images/property-1.svg" alt="Placeholder photograph of 12 Hawthorn Lane, to be replaced with a real photograph">
+            </div>
+            <div class="property__body">
+              <p class="property__tag">Terraced house &middot; To let</p>
+              <h3 class="h3">12 Hawthorn Lane, Yarm</h3>
+              <p class="dim-line">
+                <span class="dim-line__label">2 bed</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__label">1 bath</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__value">680 sq ft</span>
+              </p>
+              <div class="property__price">
+                <strong class="tabular">&pound;900 pcm</strong>
+                <span class="status status--let">To let</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="property property--accent">
+            <div class="property__art">
+              <img src="images/property-2.svg" alt="Placeholder photograph of 158 Marlow Crescent, to be replaced with a real photograph">
+            </div>
+            <div class="property__body">
+              <p class="property__tag">Semi-detached house &middot; Let agreed</p>
+              <h3 class="h3">158 Marlow Crescent, Yarm</h3>
+              <p class="dim-line">
+                <span class="dim-line__label">3 bed</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__label">2 bath</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__value">920 sq ft</span>
+              </p>
+              <div class="property__price">
+                <strong class="tabular">&pound;820 pcm</strong>
+                <span class="status status--agreed">Let agreed</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="property">
+            <div class="property__art">
+              <img src="images/property-3.svg" alt="Placeholder photograph of 6a Old Kiln Road, to be replaced with a real photograph">
+            </div>
+            <div class="property__body">
+              <p class="property__tag">Ground floor flat &middot; To let</p>
+              <h3 class="h3">6a Old Kiln Road, Yarm</h3>
+              <p class="dim-line">
+                <span class="dim-line__label">1 bed</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__label">1 bath</span>
+                <span class="dim-line__rule"></span>
+                <span class="dim-line__value">400 sq ft</span>
+              </p>
+              <div class="property__price">
+                <strong class="tabular">&pound;1,050 pcm</strong>
+                <span class="status status--let">To let</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How a tenancy runs -->
+    <section class="process-section">
+      <div class="wrap">
+        <p class="eyebrow">How a tenancy runs</p>
+        <h2 class="h2" style="margin-bottom: var(--space-4);">From valuation to move-in, in four stages, always in this order.</h2>
+
+        <div class="process">
+          <div class="stage">
+            <span class="stage__index">01 &middot; Valuation</span>
+            <div class="stage__rule"></div>
+            <p>A face to face visit, an honest read of the market, and a fee-free recommendation on price, backed by real comparables on your street.</p>
+          </div>
+          <div class="stage">
+            <span class="stage__index">02 &middot; Preparation</span>
+            <div class="stage__rule"></div>
+            <p>Photography, a proper description, and the compliance work, EICR, gas safety, EPC and smoke alarms, done first so nothing holds up marketing later.</p>
+          </div>
+          <div class="stage">
+            <span class="stage__index">03 &middot; Tenant find</span>
+            <div class="stage__rule"></div>
+            <p>Listed on Rightmove and OnTheMarket, and matched against our own list of registered tenants. Every applicant referenced and met in person.</p>
+          </div>
+          <div class="stage">
+            <span class="stage__index">04 &middot; Management</span>
+            <div class="stage__rule"></div>
+            <p>Rent collected, repairs coordinated, and one statement issued on the same day every month, so you always know where things stand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial (placeholder) -->
+    <section class="testimonial-section">
+      <div class="wrap">
+        <blockquote class="testimonial">
+          <span class="testimonial__flag">Placeholder — content needed</span>
+          <p class="testimonial__quote">A genuine landlord testimonial belongs here, in their own words, about one property and one honest outcome. We'll add it once a client has agreed to be quoted.</p>
+          <cite class="testimonial__cite">&mdash; to be confirmed, landlord in Yarm</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="journal-section">
+      <div class="wrap">
+        <div class="bays bays--wide-first" style="margin-bottom: var(--space-4);">
+          <div>
+            <p class="eyebrow">Reading for landlords</p>
+            <h2 class="h2">Plain-English guidance, updated as things change.</h2>
+          </div>
+          <p class="lede">Regulation, market conditions and the practical business of letting a home in the North East, explained without jargon.</p>
+        </div>
+
+        <div class="bays bays--journal">
+          <article class="article">
+            <div class="placeholder-art" role="img" aria-label="Placeholder image for a journal article on the Renters' Rights Act"></div>
+            <p class="property__tag">Legislation</p>
+            <h3 class="article__title">The Renters' Rights Act: what it actually changes for North East landlords</h3>
+            <p class="article__meta">6 min read</p>
+          </article>
+          <article class="article">
+            <div class="placeholder-art" role="img" aria-label="Placeholder image for a journal article on the Tees Valley rental market"></div>
+            <p class="property__tag">Market</p>
+            <h3 class="article__title">The Tees Valley rental market in 2026: a quieter, steadier picture</h3>
+            <p class="article__meta">5 min read</p>
+          </article>
+          <article class="article">
+            <div class="placeholder-art" role="img" aria-label="Placeholder image for a journal article on small HMOs"></div>
+            <p class="property__tag">Investment</p>
+            <h3 class="article__title">Why smaller HMOs are drawing more landlord interest this year</h3>
+            <p class="article__meta">7 min read</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="wrap bays bays--split">
+        <div>
+          <h2 class="h2">Considering a let? Let's begin with a conversation.</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap: var(--space-3);">
+          <p class="lede">Request a free, no obligation valuation. We'll visit your property, give you an honest read of the market, and explain exactly how we'd manage it, with no pressure to instruct.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="contact.html">Request a valuation</a>
+            <a class="btn btn--ghost-light" href="landlords.html">Compare our services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <!-- PLACEHOLDER LOGO, see header note. -->
+          <svg viewBox="0 0 150 30" aria-hidden="true" style="height:1.5rem; margin-bottom: var(--space-2);">
+            <text x="0" y="23" font-size="24" fill="#141414">Y</text>
+            <path d="M20 23 V12 L28 4 L36 12 V23" fill="none" stroke="#d8651e" stroke-width="2.4"/>
+            <line x1="28" y1="14" x2="28" y2="23" stroke="#d8651e" stroke-width="2.4"/>
+            <text x="40" y="23" font-size="24" fill="#141414">RMSIDE</text>
+          </svg>
+          <p class="lede">A specialist lettings and management practice based on Yarm High Street, working with buy to let landlords across the Tees Valley.</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Lettings</h3>
+          <ul>
+            <li><a href="properties.html">Homes to let</a></li>
+            <li><a href="properties.html">Houses</a></li>
+            <li><a href="properties.html">Flats</a></li>
+            <li><a href="properties.html">Let agreed</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Landlords</h3>
+          <ul>
+            <li><a href="landlords.html">Services</a></li>
+            <li><a href="landlords.html">Fees</a></li>
+            <li><a href="landlords.html">Compliance</a></li>
+            <li><a href="contact.html">Request a valuation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Practice</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">The team</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <span>&copy; 2026 Yarmside Lettings and Management Ltd.</span>
+        <span>Registered in England and Wales. Company number to be added.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p1Title">
+  <title id="p1Title">Placeholder line drawing of a terraced house</title>
+  <rect width="400" height="300" fill="#e7e2da"/>
+  <g fill="none" stroke="#141414" stroke-width="1.6">
+    <line x1="20" y1="230" x2="380" y2="230" stroke="#8e867a" stroke-width="1"/>
+    <rect x="90" y="120" width="220" height="110"/>
+    <polyline points="90,120 200,55 310,120" stroke="#d8651e" stroke-width="2"/>
+    <rect x="180" y="160" width="40" height="70"/>
+    <rect x="120" y="145" width="34" height="30"/>
+    <rect x="246" y="145" width="34" height="30"/>
+    <rect x="150" y="90" width="24" height="26" stroke="#d8651e"/>
+  </g>
+</svg>
