@@ -364,6 +364,11 @@ textarea:focus-visible {
   color: var(--dark);
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .btn-row {
   display: flex;
   flex-wrap: wrap;
@@ -930,4 +935,413 @@ a:focus-visible .frame img {
   a:focus-visible .frame img {
     transform: none;
   }
+}
+
+/* ==========================================================================
+   Inner pages
+   ========================================================================== */
+
+/* ---- Page head (pages without a photographic hero) ----------------------- */
+
+.page-head {
+  padding-top: 9rem;
+  padding-bottom: var(--space-5);
+}
+
+.page-head__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.page-head .h1 {
+  font-size: clamp(2.2rem, 1.4rem + 3.6vw, 3.6rem);
+  max-width: 22ch;
+}
+
+.page-head .lede {
+  max-width: 40rem;
+}
+
+.breadcrumb {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--dark-tint-70);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.breadcrumb a:hover {
+  color: var(--orange);
+}
+
+.breadcrumb span[aria-hidden] {
+  color: var(--rule-strong);
+}
+
+/* ---- Filters (properties page) -------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-4);
+}
+
+.filter-btn {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--rule-strong);
+  color: var(--dark-tint-70);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--dark);
+  color: var(--dark);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--cream);
+}
+
+.property.is-hidden {
+  display: none;
+}
+
+/* ---- Property detail -------------------------------------------------------- */
+
+.gallery {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+@media (min-width: 56rem) {
+  .gallery {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .gallery .frame:first-child {
+    grid-row: span 2;
+  }
+}
+
+.gallery .frame {
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 56rem) {
+  .gallery .frame:first-child {
+    aspect-ratio: auto;
+  }
+}
+
+.detail-grid {
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (min-width: 56rem) {
+  .detail-grid {
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.detail-body h2 {
+  margin-top: var(--space-2);
+}
+
+.spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.spec-list .dim-line__label {
+  font-size: 0.85rem;
+}
+
+.spec-list .dim-line__value {
+  font-size: 0.9rem;
+}
+
+.aside-card {
+  background: var(--dark);
+  color: var(--cream);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: sticky;
+  top: 6rem;
+}
+
+.aside-card__price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.aside-card__note {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--cream) 75%, var(--grey-orange));
+}
+
+.aside-card .btn-row {
+  margin-top: var(--space-1);
+}
+
+/* ---- Service tiers (landlords) ----------------------------------------------- */
+
+.tiers {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 56rem) {
+  .tiers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tier {
+  border: 1px solid var(--rule-strong);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tier--lead {
+  background: var(--dark);
+  color: var(--cream);
+  border-color: var(--dark);
+}
+
+.tier__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.tier__for {
+  font-size: 0.9rem;
+  color: var(--dark-tint-70);
+}
+
+.tier--lead .tier__for {
+  color: color-mix(in srgb, var(--cream) 70%, var(--grey-orange));
+}
+
+.tier ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  padding-top: var(--space-1);
+}
+
+.tier li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.tier li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--orange);
+}
+
+.tier__fee {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--dark-tint-70);
+}
+
+.tier--lead .tier__fee {
+  border-top-color: color-mix(in srgb, var(--cream) 20%, transparent);
+  color: color-mix(in srgb, var(--cream) 70%, var(--grey-orange));
+}
+
+/* ---- Prose (journal, about) ---------------------------------------------------- */
+
+.prose {
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ---- Team placeholders ------------------------------------------------------------ */
+
+.team-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 40rem) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  border: 1px dashed var(--rule-strong);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: 16rem;
+  justify-content: flex-end;
+}
+
+.team-card__flag {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.team-card p {
+  font-size: 0.9rem;
+  color: var(--dark-tint-70);
+}
+
+/* ---- Forms ---------------------------------------------------------------------- */
+
+.form {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 40rem) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .field--full {
+    grid-column: span 2;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.field .hint {
+  font-size: 0.8rem;
+  color: var(--dark-tint-70);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  color: var(--dark);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  padding: 0.8rem 0.9rem;
+  border-radius: 0;
+  width: 100%;
+}
+
+.field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--dark);
+}
+
+.form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@media (min-width: 40rem) {
+  .form__actions {
+    grid-column: span 2;
+  }
+}
+
+.form__note {
+  font-size: 0.85rem;
+  color: var(--dark-tint-70);
+  max-width: 34rem;
+}
+
+.form-success {
+  border: 1px solid var(--orange);
+  padding: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 500;
+  display: none;
+}
+
+.form-success.is-visible {
+  display: block;
+}
+
+/* ---- Contact ---------------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 56rem) {
+  .contact-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-details .dim-line {
+  max-width: 24rem;
+}
+
+.contact-details address {
+  font-style: normal;
 }
