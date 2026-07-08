@@ -629,7 +629,20 @@ a:focus-visible .frame img {
 /* ---- Process (tenancy sequence) -------------------------------------------- */
 
 .process-section {
-  background: var(--grey-orange-tint-20);
+  background: var(--orange);
+}
+
+.process-section .stage__index {
+  color: var(--cream);
+}
+
+.process-section .stage__rule,
+.process-section .stage__rule::before {
+  background: color-mix(in srgb, var(--dark) 45%, var(--orange));
+}
+
+.process-section .stage p {
+  color: color-mix(in srgb, var(--dark) 82%, var(--orange));
 }
 
 .process-grid {
