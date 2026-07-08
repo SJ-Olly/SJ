@@ -191,7 +191,8 @@ textarea:focus-visible {
   inset-inline: 0;
   top: 0;
   z-index: 50;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  background: var(--cream);
+  box-shadow: 0 1px 0 var(--rule);
 }
 
 .site-header__bar {
@@ -201,27 +202,16 @@ textarea:focus-visible {
   padding-block: var(--space-2);
 }
 
-/* Over the hero: transparent, cream colourway */
-.site-header .logo-dark { display: none; }
-.site-header .logo-light { display: block; }
-
-/* After scroll: solid cream, dark colourway */
-.site-header.is-solid {
-  background: var(--cream);
-  box-shadow: 0 1px 0 var(--rule);
-}
-
-.site-header.is-solid .logo-dark { display: block; }
-.site-header.is-solid .logo-light { display: none; }
-
 .logo {
   display: inline-flex;
   align-items: center;
 }
 
-.logo svg {
-  height: 1.7rem;
+/* Supplied brand file only. Minimum on-screen width per guidelines: 120px. */
+.logo img {
+  height: 2.6rem;
   width: auto;
+  background: none;
 }
 
 .nav {
@@ -235,11 +225,6 @@ textarea:focus-visible {
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 0.88rem;
-    color: var(--cream);
-  }
-
-  .site-header.is-solid .nav {
-    color: var(--dark);
   }
 
   .nav a {
@@ -273,12 +258,6 @@ textarea:focus-visible {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.85rem;
-  color: var(--cream);
-}
-
-.site-header.is-solid .nav-toggle,
-.site-header.is-open .nav-toggle {
-  color: var(--dark);
 }
 
 @media (min-width: 48rem) {
@@ -294,14 +273,6 @@ textarea:focus-visible {
   font-weight: 500;
   font-size: 1.1rem;
 }
-
-.site-header.is-open {
-  background: var(--cream);
-  box-shadow: 0 1px 0 var(--rule);
-}
-
-.site-header.is-open .logo-dark { display: block; }
-.site-header.is-open .logo-light { display: none; }
 
 .site-header.is-open .nav-mobile {
   display: flex;
@@ -838,8 +809,8 @@ a:focus-visible .frame img {
   }
 }
 
-.footer-col .logo svg {
-  height: 1.5rem;
+.footer-col .logo img {
+  height: 2.1rem;
   margin-bottom: var(--space-2);
 }
 
