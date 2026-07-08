@@ -459,6 +459,7 @@ textarea:focus-visible {
 
 /* ---- Stats band ------------------------------------------------------------ */
 
+/* Full-bleed band: the rules run edge to edge, the columns stay in the wrap */
 .stats {
   margin-top: clamp(2.5rem, 6vw, 5rem);
   border-top: 1px solid var(--rule-strong);
