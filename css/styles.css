@@ -54,6 +54,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* One-page anchors land clear of the sticky header */
+section[id],
+[id="properties"],
+[id="landlords"],
+[id="journal"],
+[id="contact"] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   margin: 0;
   background: var(--cream);

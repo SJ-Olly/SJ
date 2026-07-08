@@ -18,6 +18,14 @@
       var open = header.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+
+    // One-page navigation: close the menu once a section link is tapped.
+    document.querySelectorAll('.nav-mobile a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        header.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   // Property filters (properties page).
