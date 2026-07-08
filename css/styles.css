@@ -294,11 +294,12 @@ textarea:focus-visible {
   gap: 0.25rem;
 }
 
-.logo svg {
+.logo__img {
   /* Brand minimum for the full wordmark on screen is 120px */
   width: clamp(128px, 14vw, 158px);
   height: auto;
   display: block;
+  background: none;
 }
 
 .logo__sub {
@@ -898,7 +899,7 @@ a:focus-visible .frame img {
   align-items: flex-start;
 }
 
-.footer-brand .logo svg {
+.footer-brand .logo__img {
   width: 150px;
 }
 
