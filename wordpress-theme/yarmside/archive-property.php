@@ -37,17 +37,11 @@ get_header();
 		</div>
 
 		<?php if ( have_posts() ) : ?>
-			<div class="card-grid card-grid--mosaic" id="propertyGrid">
+			<div class="card-grid" id="propertyGrid">
 				<?php
-				$yarmside_index = 0;
 				while ( have_posts() ) :
 					the_post();
-					$yarmside_index++;
-					get_template_part(
-						'template-parts/property-card',
-						null,
-						array( 'size' => ( 1 === $yarmside_index % 7 ) ? 'yarmside-bay' : 'yarmside-card' )
-					);
+					get_template_part( 'template-parts/property-card' );
 				endwhile;
 				?>
 			</div>

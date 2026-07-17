@@ -633,44 +633,6 @@ a:focus-visible .frame img {
 }
 
 
-/* ---- Mosaic layout for the properties archive ------------------------------
-   One large tile spanning two columns and two rows, two stacked tiles
-   beside it, then a row of four, repeating every seven listings.
-   While a filter is active the grid falls back to the uniform layout so
-   hidden cards don't fragment the pattern. */
-
-@media (min-width: 40rem) and (max-width: 63.9375rem) {
-  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (min-width: 64rem) {
-  .card-grid--mosaic:not(.is-filtered) {
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .card-grid--mosaic:not(.is-filtered) .property {
-    grid-column: span 3;
-  }
-
-  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) {
-    grid-column: span 8;
-    grid-row: span 2;
-  }
-
-  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 2),
-  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 3) {
-    grid-column: span 4;
-  }
-
-  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) .property__art {
-    aspect-ratio: auto;
-    flex: 1 1 auto;
-    min-height: 24rem;
-  }
-}
-
 .property__body {
   padding-block: var(--space-2);
   display: flex;
@@ -1094,14 +1056,27 @@ a:focus-visible .frame img {
   margin-bottom: var(--space-5);
 }
 
+/* Mosaic gallery: one large photo spanning two columns and two rows,
+   two stacked beside it, then a row of four, repeating every seven
+   photos. With three photos it collapses to the classic lead-plus-two;
+   below 56rem everything stacks. */
 @media (min-width: 56rem) {
   .gallery--multi {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(12, 1fr);
   }
 
-  .gallery--multi .frame:first-child {
+  .gallery--multi .frame {
+    grid-column: span 3;
+  }
+
+  .gallery--multi .frame:nth-child(7n + 1) {
+    grid-column: span 8;
     grid-row: span 2;
+  }
+
+  .gallery--multi .frame:nth-child(7n + 2),
+  .gallery--multi .frame:nth-child(7n + 3) {
+    grid-column: span 4;
   }
 }
 
@@ -1110,8 +1085,9 @@ a:focus-visible .frame img {
 }
 
 @media (min-width: 56rem) {
-  .gallery--multi .frame:first-child {
+  .gallery--multi .frame:nth-child(7n + 1) {
     aspect-ratio: auto;
+    min-height: 24rem;
   }
 }
 

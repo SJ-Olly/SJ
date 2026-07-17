@@ -34,8 +34,6 @@
           other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
         });
 
-        grid.classList.toggle('is-filtered', filter !== 'all');
-
         grid.querySelectorAll('.property').forEach(function (card) {
           var show =
             filter === 'all' ||

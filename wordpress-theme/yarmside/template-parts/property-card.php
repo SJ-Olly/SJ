@@ -6,14 +6,13 @@
  */
 
 $yarmside_id     = get_the_ID();
-$yarmside_size   = isset( $args['size'] ) ? $args['size'] : 'yarmside-card';
 $yarmside_status = yarmside_property_status( $yarmside_id );
 $yarmside_price  = get_post_meta( $yarmside_id, '_yarmside_price', true );
 ?>
 <a class="property" href="<?php the_permalink(); ?>"<?php yarmside_property_filter_atts( $yarmside_id ); ?>>
 	<div class="frame property__art">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail( $yarmside_size ); ?>
+			<?php the_post_thumbnail( 'yarmside-card' ); ?>
 		<?php endif; ?>
 	</div>
 	<div class="property__body">
