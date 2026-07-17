@@ -1,16 +1,17 @@
 /*
 Theme Name: Yarmside
 Theme URI: https://www.yarmside.co.uk/
-Author: SJ Systems
-Author URI: https://www.sjsystems.co.uk/
-Description: Bespoke theme for Yarmside Lettings, a lettings and property management practice on Yarm High Street. Brand palette and typography are fixed to the Yarmside guidelines; content, menus, logo, properties and journal posts are fully editable.
+Author: Yarmside Lettings and Management Ltd
+Author URI: https://www.yarmside.co.uk/
+Description: A fast, accessible lettings theme for Yarmside — lettings and property management on Yarm High Street. Includes a Properties custom post type, a Journal blog, editable branded pages built from block patterns, and full Customizer control of brand colours and contact details.
 Version: 1.0.0
-Requires at least: 6.0
+Requires at least: 6.3
 Tested up to: 6.7
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: yarmside
+Tags: real-estate, blog, custom-menu, custom-logo, featured-images, block-patterns, editor-style, translation-ready
 */
 
 /* ==========================================================================
@@ -18,10 +19,11 @@ Text Domain: yarmside
    Tokens: colour + type + spacing.
    Signature device: the dimension line (.dim-line).
    Image-led layout: full-bleed hero, large photography, asymmetric bays.
+   Brand colours can be overridden from the Customizer (inline CSS vars).
    ========================================================================== */
 
 :root {
-  /* Brand colours — fixed, no additions */
+  /* Brand colours — overridable via Customizer */
   --orange: #d8651e;
   --dark: #141414;
   --cream: #f5f1ea;
@@ -49,6 +51,7 @@ Text Domain: yarmside
   --space-6: 7.5rem;
 
   --max: 82rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
   --tick: 10px;
 }
 
@@ -78,6 +81,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
   background: var(--img-fallback);
 }
@@ -87,13 +91,14 @@ a {
   text-decoration: none;
 }
 
-ul {
+nav ul,
+.footer-col ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-h1, h2, h3, p, figure, blockquote {
+h1, h2, h3, h4, h5, h6, p, figure, blockquote {
   margin: 0;
 }
 
@@ -105,11 +110,40 @@ button {
   cursor: pointer;
 }
 
-/* ---- Focus states ---------------------------------------------------- */
+/* ---- Accessibility helpers ------------------------------------------- */
+
+.screen-reader-text {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 0.8rem 1.2rem;
+  background: var(--dark);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: var(--space-2);
+  top: var(--space-2);
+}
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--orange);
   outline-offset: 3px;
@@ -161,7 +195,7 @@ textarea:focus-visible {
 .wrap {
   max-width: var(--max);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 3rem);
+  padding-inline: var(--gutter);
 }
 
 .section {
@@ -208,6 +242,10 @@ textarea:focus-visible {
   z-index: 50;
   background: var(--cream);
   box-shadow: 0 1px 0 var(--rule);
+}
+
+.admin-bar .site-header {
+  top: var(--wp-admin--admin-bar--height, 32px);
 }
 
 .site-header__bar {
@@ -299,7 +337,8 @@ textarea:focus-visible {
 
 /* ---- Buttons ------------------------------------------------------------ */
 
-.btn {
+.btn,
+.wp-block-button__link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -308,35 +347,45 @@ textarea:focus-visible {
   font-size: 0.9rem;
   padding: 0.95rem 1.6rem;
   border: 1px solid transparent;
+  border-radius: 0;
   white-space: nowrap;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.btn--primary {
+.btn--primary,
+.wp-block-button__link {
   background: var(--orange);
   color: var(--cream);
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.wp-block-button__link:hover {
   background: var(--orange-deep);
+  color: var(--cream);
 }
 
-.btn--ghost {
+.btn--ghost,
+.wp-block-button.is-style-ghost .wp-block-button__link {
+  background: transparent;
   border-color: var(--dark);
   color: var(--dark);
 }
 
-.btn--ghost:hover {
+.btn--ghost:hover,
+.wp-block-button.is-style-ghost .wp-block-button__link:hover {
   background: var(--dark);
   color: var(--cream);
 }
 
-.btn--ghost-light {
+.btn--ghost-light,
+.wp-block-button.is-style-ghost-light .wp-block-button__link {
+  background: transparent;
   border-color: var(--cream);
   color: var(--cream);
 }
 
-.btn--ghost-light:hover {
+.btn--ghost-light:hover,
+.wp-block-button.is-style-ghost-light .wp-block-button__link:hover {
   background: var(--cream);
   color: var(--dark);
 }
@@ -346,7 +395,8 @@ textarea:focus-visible {
   cursor: default;
 }
 
-.btn-row {
+.btn-row,
+.wp-block-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -472,6 +522,7 @@ textarea:focus-visible {
 
 .frame {
   overflow: hidden;
+  background: var(--img-fallback);
 }
 
 .frame img {
@@ -581,6 +632,45 @@ a:focus-visible .frame img {
   aspect-ratio: 4 / 3;
 }
 
+
+/* ---- Mosaic layout for the properties archive ------------------------------
+   One large tile spanning two columns and two rows, two stacked tiles
+   beside it, then a row of four, repeating every seven listings.
+   While a filter is active the grid falls back to the uniform layout so
+   hidden cards don't fragment the pattern. */
+
+@media (min-width: 40rem) and (max-width: 63.9375rem) {
+  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .card-grid--mosaic:not(.is-filtered) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .card-grid--mosaic:not(.is-filtered) .property {
+    grid-column: span 3;
+  }
+
+  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 2),
+  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 3) {
+    grid-column: span 4;
+  }
+
+  .card-grid--mosaic:not(.is-filtered) .property:nth-child(7n + 1) .property__art {
+    aspect-ratio: auto;
+    flex: 1 1 auto;
+    min-height: 24rem;
+  }
+}
+
 .property__body {
   padding-block: var(--space-2);
   display: flex;
@@ -631,7 +721,8 @@ a:focus-visible .frame img {
   background: var(--orange);
 }
 
-.status--agreed::before {
+.status--agreed::before,
+.status--gone::before {
   background: var(--grey-orange);
 }
 
@@ -729,7 +820,7 @@ a:focus-visible .frame img {
   color: var(--dark-tint-70);
 }
 
-/* ---- Testimonial (placeholder) --------------------------------------------- */
+/* ---- Testimonial ------------------------------------------------------------ */
 
 .testimonial {
   border-left: 3px solid var(--orange);
@@ -737,13 +828,15 @@ a:focus-visible .frame img {
   padding: clamp(1.75rem, 4vw, 3rem);
 }
 
-.testimonial__quote {
+.testimonial__quote,
+.testimonial p {
   font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
   line-height: 1.45;
   max-width: 42rem;
 }
 
-.testimonial__cite {
+.testimonial__cite,
+.testimonial cite {
   display: block;
   margin-top: var(--space-2);
   color: var(--dark-tint-70);
@@ -837,8 +930,10 @@ a:focus-visible .frame img {
   }
 }
 
+/* Brand guidelines: never render the full logo below 120px wide. */
 .footer-col .logo img {
-  height: 2.1rem;
+  height: 2.2rem;
+  min-width: 120px;
   margin-bottom: var(--space-2);
 }
 
@@ -1000,12 +1095,12 @@ a:focus-visible .frame img {
 }
 
 @media (min-width: 56rem) {
-  .gallery {
+  .gallery--multi {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
 
-  .gallery .frame:first-child {
+  .gallery--multi .frame:first-child {
     grid-row: span 2;
   }
 }
@@ -1015,7 +1110,7 @@ a:focus-visible .frame img {
 }
 
 @media (min-width: 56rem) {
-  .gallery .frame:first-child {
+  .gallery--multi .frame:first-child {
     aspect-ratio: auto;
   }
 }
@@ -1068,10 +1163,19 @@ a:focus-visible .frame img {
   top: 6rem;
 }
 
+.aside-card .status {
+  color: var(--cream);
+}
+
 .aside-card__price {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 2rem;
+}
+
+.aside-card__price small {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .aside-card__note {
@@ -1126,6 +1230,9 @@ a:focus-visible .frame img {
 }
 
 .tier ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -1170,7 +1277,7 @@ a:focus-visible .frame img {
   gap: var(--space-2);
 }
 
-/* ---- Team placeholders ------------------------------------------------------------ */
+/* ---- Team ------------------------------------------------------------------------ */
 
 .team-grid {
   display: grid;
@@ -1205,6 +1312,10 @@ a:focus-visible .frame img {
 .team-card p {
   font-size: 0.9rem;
   color: var(--dark-tint-70);
+}
+
+.team-card img {
+  margin-bottom: auto;
 }
 
 /* ---- Forms ---------------------------------------------------------------------- */
@@ -1287,11 +1398,6 @@ a:focus-visible .frame img {
   padding: var(--space-3);
   font-family: var(--font-display);
   font-weight: 500;
-  display: none;
-}
-
-.form-success.is-visible {
-  display: block;
 }
 
 .form-success--error {
@@ -1326,242 +1432,263 @@ a:focus-visible .frame img {
   font-style: normal;
 }
 
-
 /* ==========================================================================
-   WordPress layer: content entered in the editor inherits the site's look.
+   WordPress specifics
    ========================================================================== */
 
-/* ---- Menus rendered by wp_nav_menu ---------------------------------------- */
+/* ---- Editable page content: constrained flow with full-bleed sections ------ */
 
-.nav ul,
-.nav-mobile ul,
-.footer-col ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.entry-content > * {
+  max-width: var(--max);
+  margin-inline: auto;
+  margin-block: 0 var(--space-3);
+  padding-inline: var(--gutter);
 }
 
-.nav ul {
-  display: flex;
-  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+.entry-content > .alignfull {
+  max-width: none;
+  padding-inline: 0;
+  margin-block: 0;
 }
 
-.nav-mobile ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+.entry-content > .alignwide {
+  max-width: calc(var(--max) + 8rem);
 }
 
-/* ---- Entry content: pages and posts pick up the design automatically ------- */
-
-.entry-content {
+/* Journal articles read at prose measure; galleries and embeds can go wide. */
+.prose-flow > *:not(.alignwide):not(.alignfull):not(.wp-block-columns) {
   max-width: 44rem;
 }
 
-.entry-content > * + * {
-  margin-top: var(--space-2);
+.prose-flow > * {
+  margin-block: 0 var(--space-2);
 }
 
-.entry-content h2 {
+.prose-flow h2,
+.prose-flow h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-top: var(--space-3);
+}
+
+.prose-flow h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.prose-flow h3 {
+  font-size: 1.15rem;
+}
+
+.prose-flow ul,
+.prose-flow ol {
+  padding-left: 1.25rem;
+}
+
+.prose-flow li {
+  margin-bottom: 0.4rem;
+}
+
+.prose-flow a {
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 3px;
+}
+
+.prose-flow blockquote {
+  border-left: 3px solid var(--orange);
+  background: var(--grey-orange-tint-20);
+  padding: var(--space-3);
+}
+
+/* Headings inside editable content pick up display type automatically */
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4 {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.12;
-  font-size: clamp(1.45rem, 1.15rem + 1.4vw, 2rem);
-  margin-top: var(--space-4);
 }
 
-.entry-content h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
+.entry-content h2:not([class*="h"]) {
+  font-size: clamp(1.7rem, 1.25rem + 2.2vw, 2.6rem);
+}
+
+.entry-content h3:not([class*="h"]) {
   font-size: 1.1rem;
-  margin-top: var(--space-3);
+  line-height: 1.3;
 }
 
-.entry-content ul,
-.entry-content ol {
-  padding-left: 1.2rem;
+/* Core blocks inside branded sections */
+.entry-content .wp-block-columns {
+  gap: var(--space-4);
 }
 
-.entry-content ul {
-  list-style: none;
-}
-
-.entry-content ul li {
-  position: relative;
-  padding-left: 0.4rem;
-}
-
-.entry-content ul li::before {
-  content: "";
-  position: absolute;
-  left: -1rem;
-  top: 0.7em;
-  width: 0.55rem;
-  height: 1px;
-  background: var(--orange);
-}
-
-.entry-content a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.entry-content a:hover {
-  color: var(--orange);
-}
-
-.entry-content blockquote {
-  border-left: 3px solid var(--orange);
-  background: var(--grey-orange-tint-20);
-  padding: var(--space-3);
-  font-size: 1.05rem;
-}
-
-.entry-content blockquote cite {
-  display: block;
-  margin-top: var(--space-1);
-  color: var(--dark-tint-70);
-  font-size: 0.9rem;
-  font-style: normal;
-}
-
-.entry-content img {
+.wp-block-image img {
   height: auto;
 }
 
-.entry-content figcaption,
+.wp-block-image figcaption,
 .wp-caption-text {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--dark-tint-70);
-  margin-top: 0.4rem;
-}
-
-.entry-content hr {
-  border: 0;
-  height: 1px;
-  background: var(--rule-strong);
-  margin-block: var(--space-4);
-}
-
-.entry-content table {
-  border-collapse: collapse;
-  width: 100%;
-  font-variant-numeric: tabular-nums;
-}
-
-.entry-content th,
-.entry-content td {
-  border-bottom: 1px solid var(--rule);
-  padding: 0.6rem 0.75rem;
-  text-align: left;
-}
-
-.entry-content th {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-/* Alignments */
-.alignwide {
-  max-width: var(--max);
-}
-
-.alignfull {
-  max-width: none;
-  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .alignleft {
   float: left;
-  margin: 0 var(--space-3) var(--space-2) 0;
+  margin-right: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .alignright {
   float: right;
-  margin: 0 0 var(--space-2) var(--space-3);
+  margin-left: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .aligncenter {
-  margin-inline: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Editor colour palette classes (brand colours only) */
-.has-yarmside-orange-color { color: var(--orange); }
-.has-yarmside-orange-background-color { background-color: var(--orange); }
-.has-dark-grey-color { color: var(--dark); }
-.has-dark-grey-background-color { background-color: var(--dark); }
-.has-orange-cream-color { color: var(--cream); }
-.has-orange-cream-background-color { background-color: var(--cream); }
-.has-grey-orange-color { color: var(--grey-orange); }
-.has-grey-orange-background-color { background-color: var(--grey-orange); }
-
-/* Buttons block maps to the theme button */
-.wp-block-button__link {
-  border-radius: 0;
+/* Sections rendered as patterns inside entry content keep band padding */
+.entry-content .section,
+.entry-content .section--tight {
+  margin-bottom: 0;
 }
 
-/* Post meta line under single post titles */
-.post-meta {
+/* Spec lists in page content stay left-aligned at a readable measure */
+.entry-content > .spec-list .dim-line {
+  max-width: 44rem;
+}
+
+/* Breathing room between a pattern heading and the form beside it */
+.contact-grid .h2 {
+  margin-bottom: var(--space-3);
+}
+
+/* ---- Post navigation & pagination ------------------------------------------ */
+
+.pagination,
+.navigation.pagination {
+  margin-top: var(--space-4);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.nav-links .page-numbers {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--rule-strong);
   color: var(--dark-tint-70);
 }
 
-/* Featured image on single posts */
-.single-hero {
-  aspect-ratio: 21 / 9;
-  margin-bottom: var(--space-4);
+.nav-links .page-numbers.current {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--cream);
 }
 
-/* Pagination */
-.pagination {
+.nav-links a.page-numbers:hover {
+  border-color: var(--dark);
+  color: var(--dark);
+}
+
+/* ---- Comments (kept quiet, journal is mostly one-way) ----------------------- */
+
+.comments-area {
+  max-width: 44rem;
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+}
+
+.comments-area ol {
+  list-style: none;
+  padding: 0;
   display: flex;
-  gap: var(--space-1);
-  justify-content: center;
-  margin-top: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.comment-meta {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.comment-metadata {
+  font-size: 0.78rem;
+  color: var(--dark-tint-70);
+  font-weight: 400;
+}
+
+.comment-content {
+  font-size: 0.95rem;
+}
+
+.comment-respond input,
+.comment-respond textarea {
+  font: inherit;
+  color: var(--dark);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  padding: 0.8rem 0.9rem;
+  border-radius: 0;
+  width: 100%;
+}
+
+.comment-respond .submit {
+  background: var(--orange);
+  color: var(--cream);
+  border: 0;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.9rem;
+  padding: 0.95rem 1.6rem;
+  width: auto;
+  cursor: pointer;
 }
 
-.pagination .page-numbers {
-  padding: 0.5rem 0.9rem;
+/* ---- Sticky-post / misc WP classes required by the theme review ------------- */
+
+.sticky {
+  display: flex;
+}
+
+.bypostauthor {
+  font-style: normal;
+}
+
+.gallery-caption {
+  font-size: 0.8rem;
+  color: var(--dark-tint-70);
+}
+
+/* ---- Search form -------------------------------------------------------------- */
+
+.search-form {
+  display: flex;
+  gap: var(--space-2);
+  max-width: 34rem;
+}
+
+.search-form input[type="search"] {
+  flex: 1;
+  font: inherit;
+  color: var(--dark);
+  background: transparent;
   border: 1px solid var(--rule-strong);
-}
-
-.pagination .page-numbers.current {
-  background: var(--dark);
-  color: var(--cream);
-  border-color: var(--dark);
-}
-
-.pagination a.page-numbers:hover {
-  border-color: var(--dark);
-}
-
-/* Screen reader text (WP convention) */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  position: absolute !important;
-  word-wrap: normal !important;
-}
-
-/* Admin bar offset for the fixed header */
-.admin-bar .site-header {
-  top: 32px;
-}
-
-@media screen and (max-width: 782px) {
-  .admin-bar .site-header {
-    top: 46px;
-  }
+  padding: 0.8rem 0.9rem;
+  border-radius: 0;
 }

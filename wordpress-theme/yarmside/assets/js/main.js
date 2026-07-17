@@ -2,9 +2,9 @@
   var header = document.getElementById('siteHeader');
   var toggle = document.getElementById('navToggle');
 
-  // If a stock image fails to load, hide it so the tinted frame shows
+  // If a photo fails to load, hide it so the tinted frame shows
   // instead of a broken image icon.
-  document.querySelectorAll('img').forEach(function (img) {
+  document.querySelectorAll('.frame img, .hero__media img').forEach(function (img) {
     img.addEventListener('error', function () {
       img.style.visibility = 'hidden';
     });
@@ -20,7 +20,8 @@
     });
   }
 
-  // Property filters (properties page).
+  // Property filters (archive page). Filters the cards already on the
+  // page by property type term or availability status.
   var grid = document.getElementById('propertyGrid');
   var filterButtons = document.querySelectorAll('.filter-btn');
 
@@ -33,6 +34,8 @@
           other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
         });
 
+        grid.classList.toggle('is-filtered', filter !== 'all');
+
         grid.querySelectorAll('.property').forEach(function (card) {
           var show =
             filter === 'all' ||
@@ -43,5 +46,4 @@
       });
     });
   }
-
 })();

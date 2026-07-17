@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.5/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": false,
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "gradients": [],
+      "palette": [
+        { "slug": "orange", "color": "#d8651e", "name": "Yarmside Orange" },
+        { "slug": "dark", "color": "#141414", "name": "Yarmside Dark" },
+        { "slug": "cream", "color": "#f5f1ea", "name": "Yarmside Cream" },
+        { "slug": "grey-orange", "color": "#8e867a", "name": "Yarmside Grey Orange" }
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": false,
+      "fontFamilies": [
+        {
+          "slug": "display",
+          "name": "Montserrat (display)",
+          "fontFamily": "'Montserrat', 'Segoe UI', Arial, sans-serif"
+        },
+        {
+          "slug": "body",
+          "name": "Raleway (body)",
+          "fontFamily": "'Raleway', 'Segoe UI', Arial, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "size": "0.85rem", "name": "Small" },
+        { "slug": "medium", "size": "1rem", "name": "Body" },
+        { "slug": "large", "size": "1.2rem", "name": "Lede" },
+        { "slug": "x-large", "size": "1.7rem", "name": "Heading" }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "vw"]
+    },
+    "layout": {
+      "contentSize": "44rem",
+      "wideSize": "82rem"
+    }
+  }
+}

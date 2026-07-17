@@ -1,65 +1,82 @@
 <?php
 /**
- * Single journal post.
+ * A journal article.
  *
  * @package Yarmside
  */
 
 get_header();
-?>
 
-<main>
-	<?php while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) :
+	the_post();
 
-		<div class="page-head">
-			<div class="wrap page-head__inner">
-				<nav class="breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'yarmside' ); ?>">
-					<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>"><?php esc_html_e( 'Journal', 'yarmside' ); ?></a>
+	$yarmside_categories = get_the_category();
+	$yarmside_tag_parts  = array();
+	if ( $yarmside_categories ) {
+		$yarmside_tag_parts[] = $yarmside_categories[0]->name;
+	}
+	$yarmside_tag_parts[] = get_the_date( 'F Y' );
+	$yarmside_tag_parts[] = yarmside_read_time( get_the_ID() );
+
+	$yarmside_journal = get_option( 'page_for_posts' );
+	?>
+
+	<div class="page-head">
+		<div class="wrap page-head__inner">
+			<nav class="breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'yarmside' ); ?>">
+				<?php if ( $yarmside_journal ) : ?>
+					<a href="<?php echo esc_url( get_permalink( $yarmside_journal ) ); ?>"><?php echo esc_html( get_the_title( $yarmside_journal ) ); ?></a>
 					<span aria-hidden="true">/</span>
-					<span><?php the_title(); ?></span>
-				</nav>
-				<h1 class="h1"><?php the_title(); ?></h1>
-				<p class="post-meta">
-					<?php
-					$category = get_the_category();
-					if ( $category ) {
-						echo esc_html( $category[0]->name ) . ' &middot; ';
-					}
-					echo esc_html( get_the_date() ) . ' &middot; ' . esc_html( yarmside_reading_time() );
-					?>
-				</p>
-			</div>
+				<?php endif; ?>
+				<span><?php the_title(); ?></span>
+			</nav>
+			<h1 class="h1"><?php the_title(); ?></h1>
+			<p class="property__tag"><?php echo esc_html( implode( ' · ', $yarmside_tag_parts ) ); ?></p>
 		</div>
+	</div>
 
+	<article <?php post_class(); ?>>
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="wrap">
-				<div class="frame single-hero">
-					<?php the_post_thumbnail( 'yarmside-wide' ); ?>
+			<div class="wrap" style="margin-bottom: var(--space-4);">
+				<div class="frame article__art">
+					<?php the_post_thumbnail( 'yarmside-bay', array( 'fetchpriority' => 'high' ) ); ?>
 				</div>
 			</div>
 		<?php endif; ?>
 
-		<article class="section--tight">
-			<div class="wrap">
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
+		<div class="wrap">
+			<div class="prose-flow">
+				<?php the_content(); ?>
 			</div>
-		</article>
 
-	<?php endwhile; ?>
+			<?php
+			wp_link_pages(
+				array(
+					'before' => '<nav class="pagination">' . esc_html__( 'Pages:', 'yarmside' ),
+					'after'  => '</nav>',
+				)
+			);
+			?>
 
-	<section class="section cta">
-		<div class="wrap cta__grid">
-			<h2 class="h2"><?php esc_html_e( "Got a question this article hasn't answered?", 'yarmside' ); ?></h2>
-			<div class="cta__panel">
-				<p class="lede"><?php esc_html_e( 'Ask us directly. If enough landlords ask the same thing, it usually becomes the next article.', 'yarmside' ); ?></p>
-				<div class="btn-row">
-					<a class="btn btn--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Get in touch', 'yarmside' ); ?></a>
-				</div>
-			</div>
+			<?php
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			}
+			?>
 		</div>
-	</section>
-</main>
+	</article>
 
-<?php get_footer(); ?>
+	<?php
+	yarmside_cta(
+		array(
+			'heading' => __( 'Got a question this article hasn\'t answered?', 'yarmside' ),
+			'lede'    => __( 'Ask us directly. If enough landlords ask the same thing, it usually becomes the next article.', 'yarmside' ),
+			'buttons' => array(
+				array( __( 'Get in touch', 'yarmside' ), yarmside_contact_url(), 'btn--primary' ),
+			),
+		)
+	);
+
+endwhile;
+
+get_footer();

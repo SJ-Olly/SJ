@@ -1,27 +1,30 @@
 <?php
 /**
- * Single property card in a grid.
+ * A property card, used on the archive and the homepage grid.
  *
  * @package Yarmside
  */
 
-$type   = yarmside_property_meta( 'type' );
-$status = yarmside_property_meta( 'status' );
-$slug   = ( false !== stripos( (string) $type, 'flat' ) ) ? 'flat' : 'house';
+$yarmside_id     = get_the_ID();
+$yarmside_size   = isset( $args['size'] ) ? $args['size'] : 'yarmside-card';
+$yarmside_status = yarmside_property_status( $yarmside_id );
+$yarmside_price  = get_post_meta( $yarmside_id, '_yarmside_price', true );
 ?>
-<a class="property" href="<?php the_permalink(); ?>" data-type="<?php echo esc_attr( $slug ); ?>" data-status="<?php echo 'agreed' === $status ? 'agreed' : 'available'; ?>">
+<a class="property" href="<?php the_permalink(); ?>"<?php yarmside_property_filter_atts( $yarmside_id ); ?>>
 	<div class="frame property__art">
-		<?php the_post_thumbnail( 'yarmside-card' ); ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<?php the_post_thumbnail( $yarmside_size ); ?>
+		<?php endif; ?>
 	</div>
 	<div class="property__body">
-		<?php if ( $type ) : ?>
-			<p class="property__tag"><?php echo esc_html( $type ); ?></p>
-		<?php endif; ?>
+		<p class="property__tag"><?php echo esc_html( yarmside_property_tag( $yarmside_id ) ); ?></p>
 		<h3 class="h3"><?php the_title(); ?></h3>
-		<?php yarmside_property_dim_line(); ?>
-		<p class="property__price">
-			<strong class="tabular"><?php echo esc_html( yarmside_property_meta( 'price' ) ); ?></strong>
-			<?php yarmside_property_status(); ?>
-		</p>
+		<?php yarmside_property_dimline( $yarmside_id ); ?>
+		<?php if ( $yarmside_price ) : ?>
+			<p class="property__price">
+				<strong class="tabular"><?php echo esc_html( yarmside_format_price( $yarmside_price ) ); ?></strong>
+				<span class="status <?php echo esc_attr( $yarmside_status[1] ); ?>"><?php echo esc_html( $yarmside_status[0] ); ?></span>
+			</p>
+		<?php endif; ?>
 	</div>
 </a>

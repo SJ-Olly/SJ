@@ -1,42 +1,34 @@
 <?php
 /**
- * Default page template: every new page inherits the site's look.
+ * Standard page: branded page head (title + excerpt lede), then
+ * fully editable block content. Full-width blocks (.alignfull)
+ * break out to the viewport edge, so pattern bands work anywhere.
  *
  * @package Yarmside
  */
 
 get_header();
-?>
 
-<main>
-	<?php while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) :
+	the_post();
+	?>
 
-		<div class="page-head">
-			<div class="wrap page-head__inner">
-				<h1 class="h1"><?php the_title(); ?></h1>
-				<?php if ( has_excerpt() ) : ?>
-					<p class="lede"><?php echo esc_html( get_the_excerpt() ); ?></p>
-				<?php endif; ?>
-			</div>
+	<div class="page-head">
+		<div class="wrap page-head__inner">
+			<h1 class="h1"><?php the_title(); ?></h1>
+			<?php if ( has_excerpt() ) : ?>
+				<p class="lede"><?php echo esc_html( get_the_excerpt() ); ?></p>
+			<?php endif; ?>
 		</div>
+	</div>
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="wrap">
-				<div class="frame single-hero">
-					<?php the_post_thumbnail( 'yarmside-wide' ); ?>
-				</div>
-			</div>
-		<?php endif; ?>
+	<article <?php post_class(); ?>>
+		<div class="entry-content">
+			<?php the_content(); ?>
+		</div>
+	</article>
 
-		<article class="section--tight">
-			<div class="wrap">
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
-			</div>
-		</article>
+	<?php
+endwhile;
 
-	<?php endwhile; ?>
-</main>
-
-<?php get_footer(); ?>
+get_footer();

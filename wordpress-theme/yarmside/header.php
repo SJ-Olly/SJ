@@ -1,6 +1,6 @@
 <?php
 /**
- * Site header.
+ * Site header: fixed bar with logo, primary nav and mobile toggle.
  *
  * @package Yarmside
  */
@@ -14,25 +14,14 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link" href="#main"><?php esc_html_e( 'Skip to content', 'yarmside' ); ?></a>
+
 <header class="site-header" id="siteHeader">
 	<div class="wrap site-header__bar">
-		<?php if ( has_custom_logo() ) : ?>
-			<?php the_custom_logo(); ?>
-		<?php else : ?>
-			<a class="logo custom-logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<img class="custom-logo" src="<?php echo esc_url( get_template_directory_uri() . '/images/yarmside-logo.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" width="1999" height="571">
-			</a>
-		<?php endif; ?>
+		<?php yarmside_logo( 'header' ); ?>
 
 		<nav class="nav" aria-label="<?php esc_attr_e( 'Primary', 'yarmside' ); ?>">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'container'      => false,
-				'depth'          => 1,
-				'fallback_cb'    => 'yarmside_menu_fallback',
-			) );
-			?>
+			<?php yarmside_primary_nav_links( 'primary' ); ?>
 		</nav>
 
 		<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile">
@@ -41,13 +30,8 @@
 	</div>
 
 	<nav class="nav-mobile wrap" id="navMobile" aria-label="<?php esc_attr_e( 'Primary, mobile', 'yarmside' ); ?>">
-		<?php
-		wp_nav_menu( array(
-			'theme_location' => 'primary',
-			'container'      => false,
-			'depth'          => 1,
-			'fallback_cb'    => 'yarmside_menu_fallback',
-		) );
-		?>
+		<?php yarmside_primary_nav_links( 'mobile' ); ?>
 	</nav>
 </header>
+
+<main id="main">

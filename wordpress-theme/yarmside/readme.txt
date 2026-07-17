@@ -1,51 +1,58 @@
-=== Yarmside ===
-Contributors: sjsystems
-Requires at least: 6.0
-Tested up to: 6.7
-Requires PHP: 7.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# Yarmside — WordPress theme
 
-Bespoke WordPress theme for Yarmside Lettings. The brand palette, typography
-and layout system are fixed to the Yarmside brand guidelines; everything
-editorial is editable from the dashboard.
+A custom WordPress theme for **Yarmside Lettings and Management Ltd**, built from the
+Yarmside site design and brand guidelines. The theme lives in [`yarmside/`](yarmside/).
 
-== Setting up ==
+## Brand compliance
 
-1. Appearance > Themes > Add New > Upload Theme, then activate Yarmside.
-2. Settings > Reading: set "Your homepage displays" to a static page.
-   Create a page called Home (homepage) and one called Journal (posts page).
-3. Create a page called Contact and assign the "Contact with valuation form"
-   template. Its excerpt becomes the intro line under the heading.
-4. Appearance > Menus: create the primary menu and the three footer column
-   menus, and assign each to its location.
-5. Appearance > Customise:
-   - Site Identity: upload the supplied Yarmside logo file.
-   - Homepage hero: heading, supporting line, hero photograph.
-   - Homepage testimonial: quote and attribution (leave empty to hide).
-   - Contact details: email, phone, address, hours. These feed the contact
-     page and its structured data.
-   - Footer: description and legal line.
-6. Add homes under Properties in the dashboard. Each property has a
-   Particulars box (type, rent, beds, baths, floor area, status), a featured
-   image, an excerpt (used on the featured panel) and a description. The
-   newest property becomes the featured panel on the homepage.
-7. Write journal articles as ordinary Posts with a featured image and a
-   category. The three most recent appear on the homepage.
+- **Colours** — exactly the four palette colours from the brand guidelines
+  (Yarmside orange `#d8651e`, dark grey `#141414`, orange cream `#f5f1ea`,
+  grey orange `#8e867a`). Every other shade on the site is a percentage tint
+  of those four, generated in CSS. Colours can be adjusted under
+  **Appearance → Customise → Yarmside settings → Brand colours** and the whole
+  site (including the block editor palette) follows.
+- **Typography** — Montserrat (500/600/700) for headlines, Raleway (400/500)
+  for body copy. One bold headline, clean Raleway underneath, body text
+  left-aligned, per the typography rules.
+- **Logo** — the supplied brand file is bundled and used automatically; upload
+  a replacement under **Customise → Site Identity → Logo**. It is never
+  rendered below the 120px minimum width.
 
-== How the styling stays consistent ==
+## Installation
 
-Pages use the same page header, type scale and spacing as the rest of the
-site automatically. Post and page content is styled through the theme's
-entry-content rules, and the editor colour palette is locked to the four
-brand colours, so future content can't drift off the guidelines. Custom
-colours and gradients are disabled deliberately.
+1. Zip the theme folder: `cd` to this repo and run `zip -r yarmside.zip yarmside`.
+2. In WordPress admin go to **Appearance → Themes → Add New Theme → Upload Theme**
+   and upload `yarmside.zip` (or copy `yarmside/` into `wp-content/themes/`).
+3. Activate it. First activation automatically creates:
+   - all pages from the design — **Home**, **Landlords**, **About**, **Contact**
+     and **Journal** (set as the posts page), with the design's content built
+     from editable block patterns;
+   - the **Properties** section (custom post type) with the archive at `/properties/`;
+   - the primary menu and the three footer menu columns;
+   - example properties and journal articles matching the design, ready to be
+     replaced with real content.
+4. Go to **Settings → Permalinks** and click **Save** once to flush permalinks
+   if property links 404.
 
-== Notes ==
+## Day-to-day use
 
-- The valuation form emails the address set in Customise > Contact details
-  (falling back to the site admin email). For reliable delivery configure
-  an SMTP plugin such as WP Mail SMTP.
-- The Properties post type is registered by the theme so this proposal is
-  self-contained. If the site will ever switch themes, move that
-  registration into a small plugin so the property content survives.
+| Task | Where |
+| --- | --- |
+| Add a property | **Properties → Add property** — title is the address, featured image is the main photo, "The particulars" box holds rent/beds/baths/EPC etc., side box adds gallery photos. The excerpt is the card description. Tick "Feature this property" to place it in the homepage bay. |
+| Add a journal article | **Posts → Add New** — category becomes the card tag, read time is calculated automatically. |
+| Add a page | **Pages → Add New** — the title becomes the branded page heading, the excerpt becomes the lede underneath it. Insert ready-made branded sections from the block inserter → **Patterns → Yarmside** (service tiers, process band, testimonial, CTA band, team grid, spec list, contact layout). |
+| Edit homepage copy | **Appearance → Customise → Yarmside settings → Homepage** (hero photo, headings, testimonial, CTA). |
+| Contact details | **Customise → Yarmside settings → Contact details** — feeds the contact page, footer, structured data and the enquiry form recipient. |
+| Enquiry form | Already on the Contact page (`[yarmside_valuation_form]` shortcode — drop it on any page). Submissions are emailed to the contact email, with honeypot + nonce spam protection, no plugin needed. |
+
+## Theme notes
+
+- Property archive filters (All / Houses / Flats / Available now) work from the
+  property type taxonomy and lettings status — new property types automatically
+  get a filter button.
+- Performance: single stylesheet, one deferred script, preconnected fonts,
+  cropped image sizes for every card context, no emoji/embed cruft.
+- Accessibility: skip link, focus states, aria labels/pressed states,
+  reduced-motion support.
+- SEO: RealEstateAgent structured data driven by the Customizer, clean titles
+  via `title-tag`.
