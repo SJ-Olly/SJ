@@ -140,6 +140,14 @@ $yarmside_hero_id = absint( get_theme_mod( 'yarmside_hero_image' ) );
 			</div>
 		</div>
 
+		<?php $yarmside_process_img = (int) get_theme_mod( 'yarmside_process_image' ); ?>
+		<?php if ( $yarmside_process_img ) : ?>
+			<div class="process-grid">
+				<div class="frame process-grid__art">
+					<?php echo wp_get_attachment_image( $yarmside_process_img, 'yarmside-bay', false, array( 'loading' => 'lazy' ) ); ?>
+				</div>
+		<?php endif; ?>
+
 		<div class="stages">
 			<?php
 			$yarmside_stages = apply_filters(
@@ -161,6 +169,10 @@ $yarmside_hero_id = absint( get_theme_mod( 'yarmside_hero_image' ) );
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+		<?php if ( $yarmside_process_img ) : ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 

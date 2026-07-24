@@ -186,8 +186,13 @@ function yarmside_pattern_process() {
 <div class="wp-block-group section-head__titles"><!-- wp:heading {"className":"h2"} --><h2 class="wp-block-heading h2">' . __( 'From valuation to move-in, in four stages, always in this order.', 'yarmside' ) . '</h2><!-- /wp:heading --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
+<!-- wp:group {"className":"process-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group process-grid"><!-- wp:image {"className":"frame process-grid__art"} -->
+<figure class="wp-block-image frame process-grid__art"></figure>
+<!-- /wp:image -->
 <!-- wp:group {"className":"stages","layout":{"type":"default"}} -->
 <div class="wp-block-group stages">' . $stages . '</div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->';

@@ -133,6 +133,25 @@ function yarmside_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'yarmside_process_image',
+		array(
+			'sanitize_callback' => 'absint',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'yarmside_process_image',
+			array(
+				'label'       => __( 'Process photograph', 'yarmside' ),
+				'description' => __( 'Shown to the left of the "From valuation to move-in" stages. Leave empty for stages only.', 'yarmside' ),
+				'section'     => 'yarmside_home',
+				'mime_type'   => 'image',
+			)
+		)
+	);
+
 	$home_fields = array(
 		'yarmside_hero_heading'      => array( __( 'Hero heading', 'yarmside' ), __( 'We manage homes the way we\'d want our own managed.', 'yarmside' ) ),
 		'yarmside_hero_lede'         => array( __( 'Hero introduction', 'yarmside' ), __( 'A small, unhurried lettings practice based on Yarm High Street, working with landlords and renters across the Tees Valley and the North East.', 'yarmside' ) ),
