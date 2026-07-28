@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'YARMSIDE_VERSION', '1.4.0' );
+define( 'YARMSIDE_VERSION', '1.3.0' );
 
 require get_template_directory() . '/inc/post-types.php';
 require get_template_directory() . '/inc/meta-boxes.php';
