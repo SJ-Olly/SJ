@@ -4,7 +4,7 @@ Theme URI: https://www.yarmside.co.uk/
 Author: Yarmside Lettings and Management Ltd
 Author URI: https://www.yarmside.co.uk/
 Description: A fast, accessible lettings theme for Yarmside — lettings and property management on Yarm High Street. Includes a Properties custom post type, a Journal blog, editable branded pages built from block patterns, and full Customizer control of brand colours and contact details.
-Version: 1.3.0
+Version: 1.4.0
 Requires at least: 6.3
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1780,4 +1780,63 @@ a:focus-visible .frame img {
 	font-size: 0.85rem;
 	color: var(--dark-tint-70);
 	max-width: 40rem;
+}
+
+/* ==========================================================================
+   Footer accreditations — compliance logos row (Customizer-managed).
+   ========================================================================== */
+
+.footer-accreditations {
+	margin-top: var(--space-4);
+	padding-top: var(--space-4);
+	border-top: 1px solid var(--rule);
+	text-align: center;
+}
+
+.footer-accreditations__title {
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-size: 0.72rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--dark-tint-70);
+	margin: 0 0 var(--space-3);
+}
+
+.footer-accreditations__row {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.footer-accreditations__item {
+	display: flex;
+	align-items: center;
+}
+
+.footer-accreditations__item img {
+	height: 56px;
+	width: auto;
+	max-width: 180px;
+	object-fit: contain;
+}
+
+.footer-accreditations__item a {
+	display: block;
+	transition: opacity 0.2s ease;
+}
+
+.footer-accreditations__item a:hover {
+	opacity: 0.72;
+}
+
+@media (max-width: 34rem) {
+	.footer-accreditations__item img {
+		height: 46px;
+	}
 }

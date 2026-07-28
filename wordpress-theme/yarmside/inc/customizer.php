@@ -224,5 +224,70 @@ function yarmside_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	/* ---- Footer accreditations (compliance logos) ---------------------- */
+
+	$wp_customize->add_section(
+		'yarmside_accreditations',
+		array(
+			'title'       => __( 'Footer accreditations', 'yarmside' ),
+			'description' => __( 'Add your compliance and accreditation logos (Propertymark, The Property Ombudsman, and so on). Leave slots empty to show fewer; the whole row hides if none are set. PNG or SVG with a transparent background works best.', 'yarmside' ),
+			'panel'       => 'yarmside',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'yarmside_accred_heading',
+		array(
+			'default'           => __( 'Certified and accredited by', 'yarmside' ),
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'yarmside_accred_heading',
+		array(
+			'label'   => __( 'Row heading', 'yarmside' ),
+			'section' => 'yarmside_accreditations',
+			'type'    => 'text',
+		)
+	);
+
+	for ( $yarmside_i = 1; $yarmside_i <= 6; $yarmside_i++ ) {
+		$wp_customize->add_setting(
+			'yarmside_accred_image_' . $yarmside_i,
+			array(
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Media_Control(
+				$wp_customize,
+				'yarmside_accred_image_' . $yarmside_i,
+				array(
+					/* translators: %d: logo slot number. */
+					'label'     => sprintf( __( 'Logo %d', 'yarmside' ), $yarmside_i ),
+					'section'   => 'yarmside_accreditations',
+					'mime_type' => 'image',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'yarmside_accred_link_' . $yarmside_i,
+			array(
+				'sanitize_callback' => 'esc_url_raw',
+			)
+		);
+		$wp_customize->add_control(
+			'yarmside_accred_link_' . $yarmside_i,
+			array(
+				/* translators: %d: logo slot number. */
+				'label'       => sprintf( __( 'Logo %d link (optional)', 'yarmside' ), $yarmside_i ),
+				'description' => __( 'Link this logo to the scheme, if you want. Leave blank for no link.', 'yarmside' ),
+				'section'     => 'yarmside_accreditations',
+				'type'        => 'url',
+			)
+		);
+	}
 }
 add_action( 'customize_register', 'yarmside_customize_register' );

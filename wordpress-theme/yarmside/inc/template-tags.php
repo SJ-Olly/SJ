@@ -417,3 +417,67 @@ function yarmside_key_information( $post_id ) {
 	<?php
 	return ob_get_clean();
 }
+
+/**
+ * Footer accreditation logos row.
+ *
+ * Renders the compliance logos added under Customise > Footer
+ * accreditations as a static, evenly spaced row. Each logo can
+ * optionally link to its scheme. Prints nothing when no logos are set.
+ */
+function yarmside_footer_accreditations() {
+	$logos = array();
+	for ( $i = 1; $i <= 6; $i++ ) {
+		$image_id = (int) get_theme_mod( 'yarmside_accred_image_' . $i );
+		if ( $image_id ) {
+			$logos[] = array(
+				'id'   => $image_id,
+				'link' => get_theme_mod( 'yarmside_accred_link_' . $i, '' ),
+			);
+		}
+	}
+
+	if ( ! $logos ) {
+		return;
+	}
+
+	$heading = get_theme_mod( 'yarmside_accred_heading', __( 'Certified and accredited by', 'yarmside' ) );
+	?>
+	<div class="footer-accreditations" aria-label="<?php esc_attr_e( 'Accreditations', 'yarmside' ); ?>">
+		<?php if ( $heading ) : ?>
+			<p class="footer-accreditations__title"><?php echo esc_html( $heading ); ?></p>
+		<?php endif; ?>
+		<ul class="footer-accreditations__row">
+			<?php
+			foreach ( $logos as $logo ) :
+				$img = wp_get_attachment_image(
+					$logo['id'],
+					'medium',
+					false,
+					array(
+						'loading' => 'lazy',
+						'alt'     => get_post_meta( $logo['id'], '_wp_attachment_image_alt', true ),
+					)
+				);
+				if ( ! $img ) {
+					continue;
+				}
+				?>
+				<li class="footer-accreditations__item">
+					<?php
+					if ( $logo['link'] ) {
+						printf(
+							'<a href="%s" rel="noopener" target="_blank">%s</a>',
+							esc_url( $logo['link'] ),
+							$img // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image escapes.
+						);
+					} else {
+						echo $img; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image escapes.
+					}
+					?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<?php
+}

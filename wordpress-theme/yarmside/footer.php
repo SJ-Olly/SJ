@@ -43,6 +43,8 @@
 			<?php endforeach; ?>
 		</div>
 
+		<?php yarmside_footer_accreditations(); ?>
+
 		<div class="footer-legal">
 			<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 			<span><?php echo esc_html( get_theme_mod( 'yarmside_footer_legal', __( 'Registered in England and Wales. Company number to be added.', 'yarmside' ) ) ); ?></span>
