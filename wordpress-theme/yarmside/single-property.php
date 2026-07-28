@@ -64,44 +64,7 @@ while ( have_posts() ) :
 				<div class="detail-body">
 					<?php the_content(); ?>
 
-					<?php
-					// The particulars: rent + every completed meta field.
-					$yarmside_particulars = array();
-					if ( $yarmside_price ) {
-						$yarmside_particulars[] = array( __( 'Rent', 'yarmside' ), yarmside_format_price( $yarmside_price ), true );
-					}
-					$yarmside_spec_fields = array(
-						'_yarmside_deposit'        => __( 'Deposit', 'yarmside' ),
-						'_yarmside_available_from' => __( 'Available', 'yarmside' ),
-						'_yarmside_furnishing'     => __( 'Furnishing', 'yarmside' ),
-						'_yarmside_council_tax'    => __( 'Council tax', 'yarmside' ),
-						'_yarmside_epc'            => __( 'EPC', 'yarmside' ),
-						'_yarmside_heating'        => __( 'Heating', 'yarmside' ),
-						'_yarmside_parking'        => __( 'Parking', 'yarmside' ),
-						'_yarmside_pets'           => __( 'Pets', 'yarmside' ),
-					);
-					foreach ( $yarmside_spec_fields as $yarmside_key => $yarmside_label ) {
-						$yarmside_value = get_post_meta( $yarmside_id, $yarmside_key, true );
-						if ( '' !== $yarmside_value ) {
-							$yarmside_particulars[] = array( $yarmside_label, $yarmside_value, false );
-						}
-					}
-
-					if ( $yarmside_particulars ) :
-						?>
-						<h2 class="h3" style="margin-top: var(--space-3);"><?php esc_html_e( 'The particulars', 'yarmside' ); ?></h2>
-						<div class="spec-list">
-							<?php foreach ( $yarmside_particulars as $yarmside_row ) : ?>
-								<p class="dim-line">
-									<span class="dim-line__label"><?php echo esc_html( $yarmside_row[0] ); ?></span>
-									<span class="dim-line__rule"></span>
-									<span class="dim-line__value<?php echo $yarmside_row[2] ? ' tabular' : ''; ?>"><?php echo esc_html( $yarmside_row[1] ); ?></span>
-								</p>
-							<?php endforeach; ?>
-						</div>
-					<?php endif; ?>
-
-					<p class="form__note"><?php esc_html_e( 'Measurements are approximate and particulars are prepared in good faith. They don\'t form part of any contract, and we\'d always rather you saw the house in person.', 'yarmside' ); ?></p>
+					<?php echo yarmside_key_information( $yarmside_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped within the template tag. ?>
 				</div>
 
 				<aside class="aside-card" aria-label="<?php esc_attr_e( 'Enquire about this property', 'yarmside' ); ?>">

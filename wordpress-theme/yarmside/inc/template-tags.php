@@ -272,3 +272,148 @@ function yarmside_cta( $args = array() ) {
 	</section>
 	<?php
 }
+
+/**
+ * The "Key information" particulars sheet for a single property.
+ *
+ * Renders the site's dimension-line device as a typeset particulars
+ * sheet: three lead figures (rent, deposit, available), then grouped
+ * detail rows. Empty rows are omitted; a group with no rows is hidden.
+ * Council tax and EPC are the exception — when blank they show an
+ * orange "To be confirmed" so a listing can't publish without its
+ * legally required figures.
+ *
+ * @param int $post_id Property ID.
+ * @return string Escaped HTML.
+ */
+function yarmside_key_information( $post_id ) {
+	$get = static function ( $key ) use ( $post_id ) {
+		return trim( (string) get_post_meta( $post_id, '_yarmside_' . $key, true ) );
+	};
+
+	// ---- Lead figures ----------------------------------------------------.
+	$price   = $get( 'price' );
+	$deposit = $get( 'deposit' );
+	$avail   = $get( 'available_from' );
+
+	$leads = array();
+	if ( '' !== $price ) {
+		$number  = preg_replace( '/[^0-9.]/', '', $price );
+		$leads[] = array(
+			'label' => __( 'Rent', 'yarmside' ),
+			'value' => '' !== $number ? '£' . number_format_i18n( (float) $number ) : $price,
+			'sub'   => __( 'per calendar month', 'yarmside' ),
+			'rent'  => true,
+		);
+	}
+	if ( '' !== $deposit ) {
+		$leads[] = array(
+			'label' => __( 'Deposit', 'yarmside' ),
+			'value' => $deposit,
+			'sub'   => '',
+			'rent'  => false,
+		);
+	}
+	if ( '' !== $avail ) {
+		$leads[] = array(
+			'label' => __( 'Available from', 'yarmside' ),
+			'value' => $avail,
+			'sub'   => '',
+			'rent'  => false,
+		);
+	}
+
+	// ---- Detail groups ---------------------------------------------------.
+	// Each row: [label, value, is_tabular, is_compliance].
+	$groups = array(
+		__( 'The property', 'yarmside' ) => array(
+			array( __( 'Property type', 'yarmside' ), $get( 'subtype' ), false, false ),
+			array( __( 'Bedrooms', 'yarmside' ), $get( 'beds' ), true, false ),
+			array( __( 'Bathrooms', 'yarmside' ), $get( 'baths' ), false, false ),
+			array( __( 'Size', 'yarmside' ), $get( 'sqft' ) ? number_format_i18n( (float) preg_replace( '/[^0-9.]/', '', $get( 'sqft' ) ) ) . ' ' . __( 'sq ft', 'yarmside' ) : '', true, false ),
+		),
+		__( 'Running costs', 'yarmside' ) => array(
+			array( __( 'Council tax', 'yarmside' ), $get( 'council_tax' ), false, true ),
+			array( __( 'EPC rating', 'yarmside' ), $get( 'epc' ), false, true ),
+			array( __( 'Heating', 'yarmside' ), $get( 'heating' ), false, false ),
+		),
+		__( 'Practical', 'yarmside' ) => array(
+			array( __( 'Furnished', 'yarmside' ), $get( 'furnishing' ), false, false ),
+			array( __( 'Parking', 'yarmside' ), $get( 'parking' ), false, false ),
+			array( __( 'Pets', 'yarmside' ), $get( 'pets' ), false, false ),
+		),
+	);
+
+	if ( ! $leads && ! array_filter( $groups, static function ( $rows ) {
+		foreach ( $rows as $row ) {
+			if ( '' !== $row[1] || $row[3] ) {
+				return true;
+			}
+		}
+		return false;
+	} ) ) {
+		return '';
+	}
+
+	$todo = '<span class="dim-line__value dim-line__value--todo">' . esc_html__( 'To be confirmed', 'yarmside' ) . '</span>';
+
+	ob_start();
+	?>
+	<section class="keyinfo" aria-label="<?php esc_attr_e( 'Key information', 'yarmside' ); ?>">
+		<h2 class="keyinfo__eyebrow"><?php esc_html_e( 'Key information', 'yarmside' ); ?></h2>
+
+		<?php if ( $leads ) : ?>
+			<div class="leads">
+				<?php foreach ( $leads as $lead ) : ?>
+					<div class="lead<?php echo $lead['rent'] ? ' lead--rent' : ''; ?>">
+						<p class="lead__label"><?php echo esc_html( $lead['label'] ); ?></p>
+						<p class="lead__value tabular"><?php echo esc_html( $lead['value'] ); ?></p>
+						<?php if ( '' !== $lead['sub'] ) : ?>
+							<p class="lead__sub"><?php echo esc_html( $lead['sub'] ); ?></p>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<div class="keyinfo__groups">
+			<?php
+			foreach ( $groups as $title => $rows ) :
+				$visible = array_filter(
+					$rows,
+					static function ( $row ) {
+						return '' !== $row[1] || $row[3];
+					}
+				);
+				if ( ! $visible ) {
+					continue;
+				}
+				?>
+				<div class="keyinfo__group">
+					<p class="keyinfo__group-title"><?php echo esc_html( $title ); ?></p>
+					<?php foreach ( $visible as $row ) : ?>
+						<p class="dim-line">
+							<span class="dim-line__label"><?php echo esc_html( $row[0] ); ?></span>
+							<span class="dim-line__rule"></span>
+							<?php
+							if ( '' === $row[1] && $row[3] ) {
+								echo $todo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static markup.
+							} else {
+								printf(
+									'<span class="dim-line__value%1$s">%2$s</span>',
+									$row[2] ? ' tabular' : '',
+									esc_html( $row[1] )
+								);
+							}
+							?>
+						</p>
+					<?php endforeach; ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<p class="keyinfo__note"><?php esc_html_e( 'Approximate measurements, prepared in good faith and not forming part of any contract.', 'yarmside' ); ?></p>
+	</section>
+	<?php
+	return ob_get_clean();
+}

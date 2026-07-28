@@ -4,7 +4,7 @@ Theme URI: https://www.yarmside.co.uk/
 Author: Yarmside Lettings and Management Ltd
 Author URI: https://www.yarmside.co.uk/
 Description: A fast, accessible lettings theme for Yarmside — lettings and property management on Yarm High Street. Includes a Properties custom post type, a Journal blog, editable branded pages built from block patterns, and full Customizer control of brand colours and contact details.
-Version: 1.2.0
+Version: 1.3.0
 Requires at least: 6.3
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1679,4 +1679,105 @@ a:focus-visible .frame img {
   border: 1px solid var(--rule-strong);
   padding: 0.8rem 0.9rem;
   border-radius: 0;
+}
+
+/* ==========================================================================
+   Key information — the particulars sheet on single property pages.
+   Sits in the left detail column; built from the dimension-line device.
+   ========================================================================== */
+
+.keyinfo__eyebrow {
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-size: 0.72rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--dark-tint-70);
+	margin: 0 0 1rem;
+}
+
+/* Lead figures: rent, deposit, available — the head of the sheet. */
+.leads {
+	border-top: 2px solid var(--dark);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+}
+
+.lead {
+	padding: 1.4rem 0;
+	border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 34rem) {
+	.lead {
+		padding: 1.5rem 1.5rem;
+	}
+	.lead:first-child {
+		padding-left: 0;
+	}
+	.lead + .lead {
+		border-left: 1px solid var(--rule);
+	}
+}
+
+.lead__label {
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: 0.8rem;
+	color: var(--dark-tint-70);
+	margin: 0;
+}
+
+.lead__value {
+	font-family: var(--font-display);
+	font-weight: 700;
+	font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
+	line-height: 1.05;
+	margin: 0.35rem 0 0.2rem;
+}
+
+.lead--rent .lead__value {
+	color: var(--orange);
+}
+
+.lead__sub {
+	font-size: 0.9rem;
+	color: var(--dark-tint-70);
+	margin: 0;
+}
+
+/* Grouped detail rows, stacked within the left column. */
+.keyinfo__groups {
+	margin-top: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2.25rem;
+}
+
+.keyinfo__group-title {
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-size: 0.72rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--dark-tint-70);
+	margin: 0 0 0.4rem;
+}
+
+.keyinfo .dim-line {
+	padding: 0.7rem 0;
+	border-bottom: 1px solid var(--rule);
+	margin: 0;
+}
+
+.dim-line__value--todo {
+	color: var(--orange);
+	font-weight: 600;
+}
+
+.keyinfo__note {
+	margin-top: 2.25rem;
+	font-size: 0.85rem;
+	color: var(--dark-tint-70);
+	max-width: 40rem;
 }
