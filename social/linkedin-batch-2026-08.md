@@ -4,8 +4,9 @@
 duotone, cyan `#01a7b7` accents, `sjsystems.co.uk` footer).
 
 Captions follow the SJ content rules: British English, contractions, no em
-dashes, no emojis, no hashtags, grounded not salesy, conversational CTA. The
-link never goes in the caption. It goes in the first comment.
+dashes, no hashtags, grounded not salesy, conversational CTA. The link never
+goes in the caption itself, it goes in the first comment, and each caption ends
+with the single line "👉 Link in the comments." (that one emoji only, no others).
 
 Schedule: 3 posts a week, Monday / Wednesday / Friday at 07:30.
 
@@ -23,13 +24,15 @@ Canva: DAHRaoJ64_k  ·  https://www.canva.com/d/p84LO3rE3WyYWZp
 Caption:
 Cyber Essentials has a reputation for being box-ticking. That reputation costs businesses money.
 
-Certify through an IASME-licensed body and, if you turn over under £20m, you get £25,000 of cyber insurance included at no extra cost (source: IASME). Plenty of contracts and insurers now ask for it too, and it covers the basics that stop most attacks.
+Certify through an IASME-licensed body and, if you turn over under £20m, you get £25,000 of cyber insurance included at no extra cost. Plenty of contracts and insurers now ask for it too, and it covers the basics that stop most attacks.
 
 It's a few days of preparation, and we'll handle the whole thing with you.
 
 If it's on your list this year, drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -46,7 +49,9 @@ The fix isn't clever tech, it's a habit. When bank details change, confirm it by
 
 We'll help you put that check in place before you need it. If you're not sure how you'd catch it, drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -63,7 +68,9 @@ Good backup is the boring kind. It runs, it's checked, and it gets test-restored
 
 When did yours last get tested? If you're not sure, drop us a message.
 
-First comment: https://sjsystems.co.uk/services/cyber-security-consulting-services/business-continuity-and-disaster-recovery/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/cyber-security-consulting-services/business-continuity-and-disaster-recovery/
 
 ---
 
@@ -80,7 +87,9 @@ The old advice, look for typos, doesn't cut it. What works now is a simple rule.
 
 Worried your team wouldn't spot it? We run practical training that helps. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -97,7 +106,9 @@ A proper 365 backup means you can put it all back in minutes, from any point in 
 
 If you're not sure whether yours is actually backed up, we'll check for you. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/cyber-security-consulting-services/business-continuity-and-disaster-recovery/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/cyber-security-consulting-services/business-continuity-and-disaster-recovery/
 
 ---
 
@@ -114,7 +125,9 @@ Most of it is preventable with the right setup and a bit of planning.
 
 Worth knowing where you'd fall over? Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/it-services/it-monitoring-services/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/it-services/it-monitoring-services/
 
 ---
 
@@ -131,7 +144,9 @@ Two things fix most of this. A password manager, so every login is different, an
 
 We can set both up across your team without the headache. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -148,7 +163,9 @@ The fix is technical but quick, and once it's done it runs in the background.
 
 We can check whether your domain's protected today. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -165,7 +182,9 @@ A proper leavers process closes accounts, reclaims access and moves their data o
 
 If you're not confident every past leaver is fully off your systems, we'll check. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/it-services/it-monitoring-services/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/it-services/it-monitoring-services/
 
 ---
 
@@ -182,7 +201,9 @@ What helps is a mix. Filtering that stops most of it reaching inboxes, MFA so on
 
 Want to give your team a fighting chance? Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
 
 ---
 
@@ -199,7 +220,9 @@ The answer isn't nagging people. It's updates that install quietly in the backgr
 
 We'll set that up so your team stays current without thinking about it. Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/it-services/it-monitoring-services/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/it-services/it-monitoring-services/
 
 ---
 
@@ -216,4 +239,6 @@ You don't need to audit the world. You do need to know who has access to what, a
 
 Not sure where your risk sits? Drop us a message.
 
-First comment: https://sjsystems.co.uk/services/security/
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
