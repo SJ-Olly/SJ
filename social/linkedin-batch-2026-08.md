@@ -242,3 +242,42 @@ Not sure where your risk sits? Drop us a message.
 👉 Link in the comments.
 
 First comment (link): https://sjsystems.co.uk/services/security/
+
+---
+
+## 13. Public wifi  ·  Mon 7 Sep, 07:30
+On-image: "That coffee shop wifi is **not private**. Neither is anyone else's **on it**."
+Canva: DAHR_Pkzdfs  ·  https://www.canva.com/d/4wH877gJUh-4f_p
+
+Caption:
+Working from the coffee shop feels harmless enough. Open wifi makes it easy for anyone else on that network to see more than you'd expect.
+
+Public wifi rarely asks much of you to join, and that's exactly the problem. Without encryption, someone else on the same network can potentially see the sites you visit and the details you type in, including passwords and card numbers.
+
+The fix is simple. Use a VPN before you connect to anything public, and stick to sites with the padlock in the address bar.
+
+If your team works from cafes, airports or client sites, we can help you set that up properly. Drop us a message.
+
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/security/
+
+---
+
+## 14. 5 signs to switch IT provider (carousel)  ·  Wed 9 Sep, 07:30
+Cover: "One bad month happens to everyone. Five in a row means it's **time to switch**."
+Slides: 01 Slow to answer, slower to fix · 02 The same fault, again and again · 03 You never hear from them first · 04 The bill goes up, the explanation doesn't · 05 You've grown, they haven't kept up · CTA Recognise more than one of these?
+Canva: DAHR_ED0Pow  ·  https://www.canva.com/d/-9-t0WR6mu11Wol
+
+Caption:
+Switching IT provider feels like a hassle, so most businesses put up with a bad one for years longer than they should.
+
+Here are five signs it's worth a conversation. Slow response times that leave you waiting. The same fault coming back again and again. Silence until something's already broken. A bill that keeps climbing with no clear reason why. Support that hasn't grown as your business has.
+
+None of these need a dramatic reason to switch. They're just signs the fit isn't right anymore.
+
+If any of that sounds familiar, drop us a message and we'll give you an honest look at where you stand.
+
+👉 Link in the comments.
+
+First comment (link): https://sjsystems.co.uk/services/it-services/
