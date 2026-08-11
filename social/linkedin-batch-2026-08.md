@@ -246,7 +246,7 @@ First comment (link): https://sjsystems.co.uk/services/security/
 ---
 
 ## 13. Public wifi  ·  Mon 7 Sep, 07:30
-On-image: "That coffee shop wifi is **not private**. Neither is anyone else's **on it**."
+On-image: "That coffee shop wifi isn't **private**. Neither is anything you **type on it**."
 Canva: DAHR_Pkzdfs  ·  https://www.canva.com/d/4wH877gJUh-4f_p
 
 Caption:
